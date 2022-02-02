@@ -4,6 +4,7 @@ import Image from "next/image";
 import styles from "../styles/Home.module.scss";
 import Layout from "../components/NavContainer";
 import NavContainer from "../components/NavContainer";
+import MainContainer from "../components/MainContainer";
 
 const Home: NextPage = () => {
   return (
@@ -16,8 +17,9 @@ const Home: NextPage = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div>
-        <NavContainer /> <div />
+      <div style={{ display: "flex" }}>
+        <NavContainer />
+        <MainContainer />
       </div>
     </div>
   );
