@@ -7,17 +7,24 @@
 .top__container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin: 20px;
   .input {
-    width: 40%;
+    width: 25.125em;
+    height: 3.125em;
+  }
+  h2 {
+    font-size: 2.5em;
+    font-weight: bold;
   }
 }
 
 .author__container {
   display: flex;
-  height: 35%;
+  height: 10.75em;
   overflow-x: scroll;
   padding-right: 4%;
+  align-items: center;
   .author__card {
     display: flex;
     flex-direction: column;
@@ -25,15 +32,17 @@
     align-items: center;
     margin-left: 10%;
     cursor: pointer;
+    width: 5.6875em;
+    height: 7.6875em;
     img {
-      width: 80px;
-      height: 80px;
+      width: 5.5em;
+      height: 5.5em;
       border-radius: 100%;
       object-fit: cover;
-      filter: drop-shadow(0px 0px 17px #29315a79);
+      filter: drop-shadow(0px 0px 17px #29315a3f);
     }
     p {
-      font-size: 14px;
+      font-size: 12px;
       text-align: center;
     }
   }
@@ -48,6 +57,8 @@
   h3 {
     margin-left: 20px;
     margin-bottom: 30px;
+    font-size: 25px;
+    font-weight: bold;
   }
   .newadded {
     display: flex;
@@ -57,7 +68,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      margin-left: 10%;
+      margin-left: 8%;
       cursor: pointer;
       .book__layout {
         width: 111.03px;
@@ -74,7 +85,7 @@
         }
       }
       p {
-        font-size: 14px;
+        font-size: 12px;
         text-align: center;
       }
     }
