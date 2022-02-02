@@ -5,16 +5,29 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  color: white;
+  color: #ffffff;
 }
 
 .profile {
   display: flex;
   align-items: center;
-  justify-content: center;
+  margin-left: 2.8125em;
+  .profile__name {
+    margin-left: 1.925em;
+    h4 {
+      margin: 0;
+      font-style: bold;
+      font-size: 17px;
+    }
+    p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.57);
+      font-size: 12px;
+    }
+  }
   img {
-    width: 50px;
-    height: 50px;
+    width: 4.125em;
+    height: 4.375em;
     border-radius: 100%;
     object-fit: cover;
     filter: drop-shadow(0px 1px 32px rgba(234, 19, 19, 0.45));
@@ -22,6 +35,7 @@
 }
 
 .menu {
+  height: 1.625em;
   height: 40%;
   display: flex;
   flex-direction: column;
@@ -30,12 +44,23 @@
     cursor: pointer;
     display: flex;
     justify-content: space-between;
-    padding-left: 20px;
-    padding-right: 20px;
-    border-bottom: 2px solid rgba(255, 253, 253, 0.09);
+    padding: 0.9375em 2.8125em 0.9375em 2.8125em;
+    position: relative;
+    font-weight: bold;
+    font-size: 17px;
     &:hover {
       background-color: rgba(255, 255, 255, 0.253);
       transition: opacity 1s ease-in-out;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      margin-left: 2.1875em;
+      left: 0;
+      bottom: 0;
+      border-bottom: 2px solid rgba(255, 253, 253, 0.09);
+      width: 89%;
+      height: 2px;
     }
   }
 }
@@ -45,23 +70,35 @@
   flex-direction: column;
   align-items: center;
   h3 {
+    font-weight: bold;
+    font-size: 17px;
     color: rgba(255, 255, 255, 0.52);
   }
   .current__reading {
     display: flex;
     background-color: white;
-    width: 60%;
-    height: 7em;
+    width: 21.5625em;
+    height: 6.8125em;
     align-items: center;
     border-radius: 10px;
     img {
-      width: 80px;
-      height: 80px;
+      width: 3.9375em;
+      height: 5.8125em;
+      margin-left: 0.625em;
+      margin-right: 1.5625em;
       object-fit: contain;
       filter: drop-shadow(4px 1px 20px #29315a);
     }
-    p {
+    p:first-child {
       color: black;
+      font-size: 17px;
+      font-weight: bold;
+      margin: 0;
+    }
+    p:last-child {
+      color: black;
+      font-size: 12px;
+      margin: 0;
     }
   }
 }

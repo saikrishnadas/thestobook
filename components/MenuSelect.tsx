@@ -5,19 +5,19 @@ function MenuSelect() {
     <div className={styles.menu}>
       <div className={styles.menuItem}>
         <p>Explore</p>
-        <p>{`>`}</p>
+        <p style={{ fontWeight: "normal" }}>{`>`}</p>
       </div>
       <div className={styles.menuItem}>
         <p>Categories</p>
-        <p>{`>`}</p>
+        <p style={{ fontWeight: "normal" }}>{`>`}</p>
       </div>
       <div className={styles.menuItem}>
         <p>Saved</p>
-        <p>{`>`}</p>
+        <p style={{ fontWeight: "normal" }}>{`>`}</p>
       </div>
       <div className={styles.menuItem}>
         <p>Trending</p>
-        <p>{`>`}</p>
+        <p style={{ fontWeight: "normal" }}>{`>`}</p>
       </div>
     </div>
   );
