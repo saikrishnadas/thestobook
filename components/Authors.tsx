@@ -1,63 +1,20 @@
 import styles from "../styles/MainContainer.module.scss";
+import Link from "next/link";
+import { authors } from "../utils/data";
 
 function Authors() {
   return (
     <div className={styles.author__container}>
-      <div className={styles.author__card}>
-        <img
-          src="https://img.etimg.com/thumb/msid-66099431,width-650,imgsize-149367,,resizemode-4,quality-100/chetan-bhagats-advice-for-students-its-all-about-knowing-how-to-market-yourself.jpg"
-          alt="chetan"
-        />
-        <p>Chetan Bagat</p>
-      </div>
-
-      <div className={styles.author__card}>
-        <img
-          src="https://img.etimg.com/thumb/msid-66099431,width-650,imgsize-149367,,resizemode-4,quality-100/chetan-bhagats-advice-for-students-its-all-about-knowing-how-to-market-yourself.jpg"
-          alt="chetan"
-        />
-        <p>Chetan Bagat</p>
-      </div>
-
-      <div className={styles.author__card}>
-        <img
-          src="https://img.etimg.com/thumb/msid-66099431,width-650,imgsize-149367,,resizemode-4,quality-100/chetan-bhagats-advice-for-students-its-all-about-knowing-how-to-market-yourself.jpg"
-          alt="chetan"
-        />
-        <p>Chetan Bagat</p>
-      </div>
-
-      <div className={styles.author__card}>
-        <img
-          src="https://img.etimg.com/thumb/msid-66099431,width-650,imgsize-149367,,resizemode-4,quality-100/chetan-bhagats-advice-for-students-its-all-about-knowing-how-to-market-yourself.jpg"
-          alt="chetan"
-        />
-        <p>Chetan Bagat</p>
-      </div>
-
-      <div className={styles.author__card}>
-        <img
-          src="https://img.etimg.com/thumb/msid-66099431,width-650,imgsize-149367,,resizemode-4,quality-100/chetan-bhagats-advice-for-students-its-all-about-knowing-how-to-market-yourself.jpg"
-          alt="chetan"
-        />
-        <p>Chetan Bagat</p>
-      </div>
-
-      <div className={styles.author__card}>
-        <img
-          src="https://img.etimg.com/thumb/msid-66099431,width-650,imgsize-149367,,resizemode-4,quality-100/chetan-bhagats-advice-for-students-its-all-about-knowing-how-to-market-yourself.jpg"
-          alt="chetan"
-        />
-        <p>Chetan Bagat</p>
-      </div>
-
-      <div className={styles.author__card}>
-        <img
-          src="https://img.etimg.com/thumb/msid-66099431,width-650,imgsize-149367,,resizemode-4,quality-100/chetan-bhagats-advice-for-students-its-all-about-knowing-how-to-market-yourself.jpg"
-          alt="chetan"
-        />
-        <p>Chetan Bagat</p>
-      </div>
+      {authors.map((author) => {
+        return (
+          <Link href={`author/${author.slug}`} key={author.id}>
+            <div className={styles.author__card}>
+              <img src={author.img} alt={author.slug} />
+              <p>{author.name}</p>
+            </div>
+          </Link>
+        );
+      })}
     </div>
   );
 }
