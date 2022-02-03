@@ -2,9 +2,9 @@ import styles from "../styles/MainContainer.module.scss";
 
 function Popular() {
   return (
-    <div className={styles.newadded__container} style={{ marginTop: "2em" }}>
+    <div className={styles.popular__container} style={{ marginTop: "2em" }}>
       <h3>Popular Now</h3>
-      <div className={styles.newadded}>
+      <div className={styles.book__container}>
         <div className={styles.book__card}>
           <div className={styles.book__layout}>
             <img

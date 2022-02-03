@@ -1,3 +1,5 @@
+@import "./common.scss";
+
 .main__container {
   width: 65%;
   height: 100vh;
@@ -52,45 +54,9 @@
 }
 
 .newadded__container {
-  height: 35%;
-  padding-right: 4%;
-  h3 {
-    margin-left: 20px;
-    margin-bottom: 30px;
-    font-size: 25px;
-    font-weight: bold;
-  }
-  .newadded {
-    display: flex;
-    overflow-x: scroll;
-    .book__card {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      margin-left: 8%;
-      cursor: pointer;
-      .book__layout {
-        width: 111.03px;
-        height: 147px;
-        background: rgba(112, 59, 38, 0.24);
-        border-radius: 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        img {
-          width: 77px;
-          height: 118px;
-          object-fit: cover;
-        }
-      }
-      p {
-        font-size: 12px;
-        text-align: center;
-      }
-    }
-    &::-webkit-scrollbar {
-      display: none;
-    }
-  }
+  @include bookContainer;
+}
+
+.popular__container {
+  @include bookContainer;
 }

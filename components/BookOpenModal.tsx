@@ -48,8 +48,8 @@ function BookOpenModal({ open, book, handleClose }: BookOpenModalProps) {
           <div className={styles.modal__container}>
             <img src={book?.img} alt={book?.slug} />
             <div className={styles.modal__details}>
-              <p>{book?.name}</p>
-              <p>Chetan Bagat</p>
+              <span>{book?.name}</span>
+              <span>{book?.author}</span>
               <div className={styles.modal__button} onClick={handleButtonClick}>
                 <p>Start Reading</p>
               </div>

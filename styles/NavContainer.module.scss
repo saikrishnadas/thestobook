@@ -1,6 +1,8 @@
+@import "./colors.scss";
+
 .container {
   width: 35%;
-  background-color: #29315a;
+  background-color: $primaryBackground;
   height: 100vh;
   display: flex;
   flex-direction: column;

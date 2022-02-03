@@ -1,0 +1,44 @@
+@import "./colors";
+
+.categories__page {
+  margin-left: 20px;
+  p {
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .categories__container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px 0;
+
+    .category__layout {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 10px;
+      div {
+        width: 141px;
+        height: 199px;
+        background-color: $primaryBackground;
+        border-radius: 20px;
+        box-shadow: 5px 4px 13px rgba(0, 0, 0, 0.25);
+        cursor: pointer;
+        img {
+          width: 150px;
+          height: 150px;
+          object-fit: contain;
+          margin-top: 32%;
+          padding-right: 3%;
+        }
+      }
+      p {
+        font-size: 18px;
+        font-weight: bold;
+        width: 152px;
+        height: 64px;
+        text-align: center;
+      }
+    }
+  }
+}

@@ -1,12 +1,13 @@
 import NavContainer from "../../containers/NavContainer";
-import AuthorContainer from "../../containers/AuthorContainer";
-function author() {
+import CategoryContainer from "../../containers/CategoryContainer";
+
+function index() {
   return (
     <div style={{ display: "flex" }}>
       <NavContainer />
-      <AuthorContainer />
+      <CategoryContainer />
     </div>
   );
 }
 
-export default author;
+export default index;

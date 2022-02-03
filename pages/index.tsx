@@ -2,9 +2,9 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.scss";
-import Layout from "../components/NavContainer";
-import NavContainer from "../components/NavContainer";
-import MainContainer from "../components/MainContainer";
+import Layout from "../containers/NavContainer";
+import NavContainer from "../containers/NavContainer";
+import MainContainer from "../containers/MainContainer";
 
 const Home: NextPage = () => {
   return (

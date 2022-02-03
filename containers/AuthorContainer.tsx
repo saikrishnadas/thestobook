@@ -1,21 +1,24 @@
 import { useState } from "react";
-import styles from "../styles/MainContainer.module.scss";
+import { useRouter } from "next/router";
+import styles from "../styles/Author.module.scss";
 import { books } from "../utils/data";
-import BookOpenModal from "./BookOpenModal";
-import { BookType } from "./AuthorContainer";
+import BookOpenModal from "../components/BookOpenModal";
 
-// @ts-ignore
-import useImageColor from "use-image-color";
+export type BookType = {
+  id: number;
+  name: string;
+  slug: string;
+  author: string;
+  img: string;
+};
 
-function NewAdded() {
+function AuthorContainer() {
+  const router = useRouter();
   const [open, setOpen] = useState(false);
   const [book, setBook] = useState<BookType | null>(null);
-  // const { colors } = useImageColor(
-  //   "https://images-na.ssl-images-amazon.com/images/I/51FqtXUscFL.jpg",
-  //   { cors: true, colors: 5 }
-  // );
-  // const myColor = colors[0];
-  // console.log(colors);
+
+  const authorSlug = router.query.slug;
+  console.log(authorSlug);
 
   const handleBookClick = (book: BookType) => {
     console.log(book);
@@ -31,9 +34,15 @@ function NewAdded() {
   return (
     <>
       <BookOpenModal open={open} handleClose={handleClose} book={book!} />
-      <div className={styles.newadded__container}>
-        <h3>Newly Added</h3>
-        <div className={styles.book__container}>
+      <div style={{ height: "100vh", width: "65%" }}>
+        <div className={styles.author__tag}>
+          <img
+            src="https://img.etimg.com/thumb/msid-66099431,width-650,imgsize-149367,,resizemode-4,quality-100/chetan-bhagats-advice-for-students-its-all-about-knowing-how-to-market-yourself.jpg"
+            alt=""
+          />
+          <p>Chetan Bagat</p>
+        </div>
+        <div className={styles.author__book__container}>
           {books.map((book) => {
             return (
               <div
@@ -58,4 +67,4 @@ function NewAdded() {
   );
 }
 
-export default NewAdded;
+export default AuthorContainer;
