@@ -47,9 +47,9 @@ export const books = [
 
   {
     id: 2,
-    name: "The Girl in Room 105",
-    slug: "the-girl-in-room-105",
-    img: "https://images-na.ssl-images-amazon.com/images/I/419Lr6CbZ7L._SX323_BO1,204,203,200_.jpg",
+    name: "One Arranged Murder",
+    slug: "one-arranged-murder",
+    img: "https://images-na.ssl-images-amazon.com/images/I/813vy7pVjxL.jpg",
   },
 
   {
