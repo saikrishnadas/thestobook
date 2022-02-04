@@ -1,13 +1,13 @@
 import { useState } from "react";
 import styles from "../styles/MainContainer.module.scss";
-import { books } from "../utils/data";
+// import { books } from "../utils/data";
 import BookOpenModal from "./BookOpenModal";
 import { BookType } from "../containers/AuthorContainer";
 
 // @ts-ignore
 import useImageColor from "use-image-color";
 
-function NewAdded() {
+function NewAdded({ books }: any) {
   const [open, setOpen] = useState(false);
   const [book, setBook] = useState<BookType | null>(null);
   // const { colors } = useImageColor(
@@ -17,7 +17,7 @@ function NewAdded() {
   // const myColor = colors[0];
   // console.log(colors);
 
-  const handleBookClick = (book: BookType) => {
+  const handleBookClick = (book: any) => {
     console.log(book);
     setBook(book);
     setOpen(true);
@@ -34,7 +34,7 @@ function NewAdded() {
       <div className={styles.newadded__container}>
         <h3>Newly Added</h3>
         <div className={styles.book__container}>
-          {books.map((book) => {
+          {books.map((book: any) => {
             return (
               <div
                 className={styles.book__card}

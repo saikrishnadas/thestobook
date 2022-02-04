@@ -5,8 +5,10 @@ import styles from "../styles/Home.module.scss";
 import Layout from "../containers/NavContainer";
 import NavContainer from "../containers/NavContainer";
 import MainContainer from "../containers/MainContainer";
+import dbConnect from "../utils/mongo";
+import Book from "../models/Book";
 
-const Home: NextPage = () => {
+const Home: NextPage = ({ books }: any) => {
   return (
     <div>
       <Head>
@@ -19,10 +21,22 @@ const Home: NextPage = () => {
       </Head>
       <div style={{ display: "flex" }}>
         <NavContainer />
-        <MainContainer />
+        <MainContainer books={books} />
       </div>
     </div>
   );
 };
 
 export default Home;
+
+export async function getServerSideProps() {
+  await dbConnect();
+
+  const resp = await Book.find({});
+  const books = JSON.parse(JSON.stringify(resp));
+  return {
+    props: {
+      books,
+    },
+  };
+}

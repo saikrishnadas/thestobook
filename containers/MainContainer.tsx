@@ -4,12 +4,12 @@ import NewAdded from "../components/NewAdded";
 import Popular from "../components/Popular";
 import styles from "../styles/MainContainer.module.scss";
 
-function MainContainer() {
+function MainContainer({ books }: any) {
   return (
     <div className={styles.main__container}>
       <TopMain />
       <Authors />
-      <NewAdded />
+      <NewAdded books={books} />
       <Popular />
     </div>
   );
