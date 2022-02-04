@@ -2,8 +2,8 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import { BookType } from "../components/AuthorContainer";
 import styles from "../styles/BookOpenModal.module.scss";
+import { useRouter } from "next/router";
 
 type BookOpenModalProps = {
   open: boolean;
@@ -11,7 +11,17 @@ type BookOpenModalProps = {
   handleClose: () => void;
 };
 
+export type BookType = {
+  id: number;
+  name: string;
+  slug: string;
+  author: string;
+  img: string;
+};
+
 function BookOpenModal({ open, book, handleClose }: BookOpenModalProps) {
+  const router = useRouter();
+
   const bookStyle = {
     position: "absolute" as "absolute",
     top: "50%",
@@ -26,8 +36,10 @@ function BookOpenModal({ open, book, handleClose }: BookOpenModalProps) {
     p: 4,
   };
 
-  const handleButtonClick = () => {
+  const handleButtonClick = (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault();
     console.log("Reading....");
+    router.push("reading");
   };
 
   return (

@@ -1,11 +1,13 @@
 import styles from "../../styles/Reading.module.scss";
 import rightIcon from "../../public/Group 5.png";
 import leftIcon from "../../public/Group 6.png";
+// import HomeIcon from "@mui/icons-material/Home";
 
 function index() {
   return (
     <div className={styles.reading__container}>
       <div className={styles.profile__division}>
+        {/* <HomeIcon /> */}
         <img
           src="https://miro.medium.com/fit/c/1360/1360/1*prGxEhjvfMxpeagLYWxA4w.jpeg"
           alt="sai"
@@ -13,7 +15,7 @@ function index() {
         <h3>SAI KRISHNA DAS</h3>
         <p>Premium Member</p>
       </div>
-    
+
       <div className={styles.paper__container}>
         <div className={styles.heading__container}>
           <p>Chapter 1</p>
