@@ -1,21 +1,26 @@
-import { useState } from "react";
+import Authors from "../components/Authors";
 import styles from "../styles/MainContainer.module.scss";
+import classes from "../styles/Trending.module.scss";
+import { useState } from "react";
+import { useRouter } from "next/router";
 import { books } from "../utils/data";
-import BookOpenModal from "./BookOpenModal";
-import { BookType } from "../containers/AuthorContainer";
+import BookOpenModal from "../components/BookOpenModal";
 
-// @ts-ignore
-import useImageColor from "use-image-color";
+export type BookType = {
+  id: number;
+  name: string;
+  slug: string;
+  author: string;
+  img: string;
+};
 
-function NewAdded() {
+function Trending() {
+  //   const router = useRouter();
   const [open, setOpen] = useState(false);
   const [book, setBook] = useState<BookType | null>(null);
-  // const { colors } = useImageColor(
-  //   "https://images-na.ssl-images-amazon.com/images/I/51FqtXUscFL.jpg",
-  //   { cors: true, colors: 5 }
-  // );
-  // const myColor = colors[0];
-  // console.log(colors);
+
+  //   const savedSlug = router.query.slug;
+  //   console.log(savedSlug);
 
   const handleBookClick = (book: BookType) => {
     console.log(book);
@@ -27,22 +32,25 @@ function NewAdded() {
     setOpen(false);
     setBook(null);
   };
-
   return (
-    <>
+    <div className={styles.main__container}>
+      <p className={classes.explore__author__tag}>Explore Authors</p>
+      <Authors />
       <BookOpenModal open={open} handleClose={handleClose} book={book!} />
-      <div className={styles.newadded__container}>
-        <h3>Newly Added</h3>
-        <div className={styles.book__container}>
+      <div>
+        <div className={classes.saved__tag}>
+          <p>Trending</p>
+        </div>
+        <div className={classes.saved__book__container}>
           {books.map((book) => {
             return (
               <div
-                className={styles.book__card}
+                className={classes.book__card}
                 key={book.id}
                 onClick={() => handleBookClick(book)}
               >
                 <div
-                  className={styles.book__layout}
+                  className={classes.book__layout}
                   // style={{ backgroundColor: myColor }}
                 >
                   <img src={book.img} alt={book.slug} />
@@ -54,8 +62,8 @@ function NewAdded() {
           })}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
-export default NewAdded;
+export default Trending;

@@ -1,21 +1,24 @@
 import { useState } from "react";
-import styles from "../styles/MainContainer.module.scss";
+import { useRouter } from "next/router";
+import styles from "../styles/Saved.module.scss";
 import { books } from "../utils/data";
-import BookOpenModal from "./BookOpenModal";
-import { BookType } from "../containers/AuthorContainer";
+import BookOpenModal from "../components/BookOpenModal";
 
-// @ts-ignore
-import useImageColor from "use-image-color";
+export type BookType = {
+  id: number;
+  name: string;
+  slug: string;
+  author: string;
+  img: string;
+};
 
-function NewAdded() {
+function SavedContainer() {
+  //   const router = useRouter();
   const [open, setOpen] = useState(false);
   const [book, setBook] = useState<BookType | null>(null);
-  // const { colors } = useImageColor(
-  //   "https://images-na.ssl-images-amazon.com/images/I/51FqtXUscFL.jpg",
-  //   { cors: true, colors: 5 }
-  // );
-  // const myColor = colors[0];
-  // console.log(colors);
+
+  //   const savedSlug = router.query.slug;
+  //   console.log(savedSlug);
 
   const handleBookClick = (book: BookType) => {
     console.log(book);
@@ -27,13 +30,14 @@ function NewAdded() {
     setOpen(false);
     setBook(null);
   };
-
   return (
     <>
       <BookOpenModal open={open} handleClose={handleClose} book={book!} />
-      <div className={styles.newadded__container}>
-        <h3>Newly Added</h3>
-        <div className={styles.book__container}>
+      <div style={{ height: "100vh", width: "65%" }}>
+        <div className={styles.saved__tag}>
+          <p>Saved</p>
+        </div>
+        <div className={styles.saved__book__container}>
           {books.map((book) => {
             return (
               <div
@@ -58,4 +62,4 @@ function NewAdded() {
   );
 }
 
-export default NewAdded;
+export default SavedContainer;

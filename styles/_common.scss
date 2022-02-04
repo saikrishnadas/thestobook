@@ -4,6 +4,7 @@
   h3 {
     margin-left: 20px;
     margin-bottom: 30px;
+    margin-top: 0;
     font-size: 25px;
     font-weight: bold;
   }
@@ -13,7 +14,7 @@
     .book__card {
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      // justify-content: center;
       align-items: center;
       margin-left: 8%;
       cursor: pointer;
@@ -41,5 +42,3 @@
     }
   }
 }
-
-

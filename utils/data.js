@@ -117,12 +117,4 @@ export const books = [
     author: "Chetan Bagat",
     img: "https://images-na.ssl-images-amazon.com/images/I/419Lr6CbZ7L._SX323_BO1,204,203,200_.jpg",
   },
-
-  {
-    id: 11,
-    name: "The Girl in Room 105",
-    slug: "the-girl-in-room-105",
-    author: "Chetan Bagat",
-    img: "https://images-na.ssl-images-amazon.com/images/I/419Lr6CbZ7L._SX323_BO1,204,203,200_.jpg",
-  },
 ];
