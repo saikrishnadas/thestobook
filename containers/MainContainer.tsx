@@ -1,16 +1,21 @@
+import { useEffect } from "react";
 import TopMain from "../components/TopMain";
 import Authors from "../components/Authors";
 import NewAdded from "../components/NewAdded";
 import Popular from "../components/Popular";
 import styles from "../styles/MainContainer.module.scss";
+import { HomeProps } from "../utils/typings";
+import dbConnect from "../utils/mongo";
+import Author from "../models/Author";
+import axios from "axios";
 
-function MainContainer({ books }: any) {
+function MainContainer({ books }: HomeProps) {
   return (
     <div className={styles.main__container}>
       <TopMain />
       <Authors />
       <NewAdded books={books} />
-      <Popular />
+      <Popular books={books} />
     </div>
   );
 }

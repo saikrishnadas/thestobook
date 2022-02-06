@@ -12,7 +12,7 @@ export type BookType = {
   img: string;
 };
 
-function AuthorContainer() {
+function AuthorContainer({ author }: any) {
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const [book, setBook] = useState<BookType | null>(null);
@@ -36,11 +36,8 @@ function AuthorContainer() {
       <BookOpenModal open={open} handleClose={handleClose} book={book!} />
       <div style={{ height: "100vh", width: "65%" }}>
         <div className={styles.author__tag}>
-          <img
-            src="https://img.etimg.com/thumb/msid-66099431,width-650,imgsize-149367,,resizemode-4,quality-100/chetan-bhagats-advice-for-students-its-all-about-knowing-how-to-market-yourself.jpg"
-            alt=""
-          />
-          <p>Chetan Bagat</p>
+          <img src={author.img} alt="" />
+          <p>{author.name}</p>
         </div>
         <div className={styles.author__book__container}>
           {books.map((book) => {

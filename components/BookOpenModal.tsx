@@ -39,7 +39,7 @@ function BookOpenModal({ open, book, handleClose }: BookOpenModalProps) {
   const handleButtonClick = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
     console.log("Reading....");
-    router.push("reading");
+    router.push("/reading");
   };
 
   return (

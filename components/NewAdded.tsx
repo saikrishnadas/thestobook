@@ -3,11 +3,12 @@ import styles from "../styles/MainContainer.module.scss";
 // import { books } from "../utils/data";
 import BookOpenModal from "./BookOpenModal";
 import { BookType } from "../containers/AuthorContainer";
+import { HomeProps } from "../utils/typings";
 
 // @ts-ignore
 import useImageColor from "use-image-color";
 
-function NewAdded({ books }: any) {
+function NewAdded({ books }: HomeProps) {
   const [open, setOpen] = useState(false);
   const [book, setBook] = useState<BookType | null>(null);
   // const { colors } = useImageColor(

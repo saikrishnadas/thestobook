@@ -7,8 +7,9 @@ import NavContainer from "../containers/NavContainer";
 import MainContainer from "../containers/MainContainer";
 import dbConnect from "../utils/mongo";
 import Book from "../models/Book";
+import { HomeProps } from "../utils/typings";
 
-const Home: NextPage = ({ books }: any) => {
+const Home: NextPage<HomeProps> = ({ books }) => {
   return (
     <div>
       <Head>
