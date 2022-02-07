@@ -6,7 +6,7 @@ import BookOpenModal from "../components/BookOpenModal";
 import axios from "axios";
 import { BookProps, AuthorProps } from "../utils/typings";
 
-function AuthorContainer({ author }: any) {
+function AuthorContainer({ author }: { author: AuthorProps }) {
   console.log("author", author);
   const router = useRouter();
   const [books, setBooks] = useState<BookProps[]>([]);

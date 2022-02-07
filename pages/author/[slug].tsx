@@ -2,9 +2,9 @@ import NavContainer from "../../containers/NavContainer";
 import AuthorContainer from "../../containers/AuthorContainer";
 import dbConnect from "../../utils/mongo";
 import Author from "../../models/Author";
-// import { AuthorProps } from "../../utils/typings";
+import { AuthorProps } from "../../utils/typings";
 
-function author({ author }: any) {
+function author({ author }: { author: AuthorProps }) {
   console.log(author);
   return (
     <div style={{ display: "flex" }}>
