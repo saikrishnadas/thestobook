@@ -10,19 +10,19 @@ function MenuSelect() {
           <p style={{ fontWeight: "normal" }}>{`>`}</p>
         </div>
       </Link>
-      <Link href="categories">
+      <Link href="/categories">
         <div className={styles.menuItem}>
           <p>Categories</p>
           <p style={{ fontWeight: "normal" }}>{`>`}</p>
         </div>
       </Link>
-      <Link href="saved">
+      <Link href="/saved">
         <div className={styles.menuItem}>
           <p>Saved</p>
           <p style={{ fontWeight: "normal" }}>{`>`}</p>
         </div>
       </Link>
-      <Link href="trending">
+      <Link href="/trending">
         <div className={styles.menuItem}>
           <p>Trending</p>
           <p style={{ fontWeight: "normal" }}>{`>`}</p>

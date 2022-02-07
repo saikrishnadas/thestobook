@@ -1,13 +1,13 @@
 import styles from "../styles/MainContainer.module.scss";
 import Link from "next/link";
-import { authors } from "../utils/data";
+import { HomeProps } from "../utils/typings";
 
-function Authors() {
+function Authors({ authors }: HomeProps) {
   return (
     <div className={styles.author__container}>
-      {authors.map((author) => {
+      {authors?.map((author) => {
         return (
-          <Link href={`author/${author.slug}`} key={author.id}>
+          <Link href={`author/${author.slug}`} key={author._id}>
             <div className={styles.author__card}>
               <img src={author.img} alt={author.slug} />
               <p>{author.name}</p>

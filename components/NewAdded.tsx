@@ -35,7 +35,7 @@ function NewAdded({ books }: HomeProps) {
       <div className={styles.newadded__container}>
         <h3>Newly Added</h3>
         <div className={styles.book__container}>
-          {books.map((book: any) => {
+          {books?.map((book: any) => {
             return (
               <div
                 className={styles.book__card}

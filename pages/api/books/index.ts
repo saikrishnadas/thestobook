@@ -25,5 +25,17 @@ export default async function addProduct(req:NextApiRequest, res:NextApiResponse
       res.status(500).json(err);
     }
   }
+
+  if (method === "PUT") {
+    try {
+      const product = await Book.updateOne(
+        {slug: req.body.slug}, 
+        { $set: { category : req.body.category} },
+        {multi:true},);
+      res.status(201).json(product);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  }
 }
 

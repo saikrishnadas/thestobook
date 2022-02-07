@@ -8,8 +8,9 @@ import MainContainer from "../containers/MainContainer";
 import dbConnect from "../utils/mongo";
 import Book from "../models/Book";
 import { HomeProps } from "../utils/typings";
+import Author from "../models/Author";
 
-const Home: NextPage<HomeProps> = ({ books }) => {
+const Home: NextPage<HomeProps> = ({ books, authors }) => {
   return (
     <div>
       <Head>
@@ -22,7 +23,7 @@ const Home: NextPage<HomeProps> = ({ books }) => {
       </Head>
       <div style={{ display: "flex" }}>
         <NavContainer />
-        <MainContainer books={books} />
+        <MainContainer books={books} authors={authors} />
       </div>
     </div>
   );
@@ -33,11 +34,15 @@ export default Home;
 export async function getServerSideProps() {
   await dbConnect();
 
-  const resp = await Book.find({});
-  const books = JSON.parse(JSON.stringify(resp));
+  const resp_books = await Book.find({});
+  const resp_authors = await Author.find({});
+
+  const books = JSON.parse(JSON.stringify(resp_books));
+  const authors = JSON.parse(JSON.stringify(resp_authors));
   return {
     props: {
       books,
+      authors,
     },
   };
 }

@@ -9,11 +9,11 @@ import dbConnect from "../utils/mongo";
 import Author from "../models/Author";
 import axios from "axios";
 
-function MainContainer({ books }: HomeProps) {
+function MainContainer({ books, authors }: HomeProps) {
   return (
     <div className={styles.main__container}>
       <TopMain />
-      <Authors />
+      <Authors authors={authors} />
       <NewAdded books={books} />
       <Popular books={books} />
     </div>

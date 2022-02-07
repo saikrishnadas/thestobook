@@ -1,11 +1,10 @@
-import Authors from "../components/Authors";
-import styles from "../styles/MainContainer.module.scss";
-import classes from "../styles/Trending.module.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Book from "../../models/Book";
+import dbConnect from "../../utils/mongo";
+import BookOpenModal from "../../components/BookOpenModal";
+import styles from "../../styles/Author.module.scss";
 import { useRouter } from "next/router";
-// import { books } from "../utils/data";
-import BookOpenModal from "../components/BookOpenModal";
-import Link from "next/link";
+import NavContainer from "../../containers/NavContainer";
 
 export type BookType = {
   _id: string;
@@ -19,13 +18,11 @@ export type BookType = {
   __v?: number;
 };
 
-function Trending({ authors, books }: any) {
-  //   const router = useRouter();
+function Category({ books }: any) {
+  const router = useRouter();
+  const { category } = router.query;
   const [open, setOpen] = useState(false);
   const [book, setBook] = useState<BookType | null>(null);
-
-  //   const savedSlug = router.query.slug;
-  //   console.log(savedSlug);
 
   const handleBookClick = (book: BookType) => {
     console.log(book);
@@ -38,29 +35,23 @@ function Trending({ authors, books }: any) {
     setBook(null);
   };
   return (
-    <div className={styles.main__container}>
-      <span style={{ display: "flex", alignItems: "center" }}>
-        <p className={classes.explore__author__tag}>Explore Authors</p>{" "}
-        {/* <Link href="/author">
-          <div style={{ cursor: "pointer" }}>View More</div>
-        </Link> */}
-      </span>
-      <Authors authors={authors} />
+    <div style={{ display: "flex" }}>
+      <NavContainer />
       <BookOpenModal open={open} handleClose={handleClose} book={book!} />
-      <div>
-        <div className={classes.saved__tag}>
-          <p>Trending</p>
+      <div style={{ height: "100vh", width: "65%" }}>
+        <div className={styles.author__tag}>
+          <p>{category}</p>
         </div>
-        <div className={classes.saved__book__container}>
+        <div className={styles.author__book__container}>
           {books.map((book: any) => {
             return (
               <div
-                className={classes.book__card}
+                className={styles.book__card}
                 key={book._id}
                 onClick={() => handleBookClick(book)}
               >
                 <div
-                  className={classes.book__layout}
+                  className={styles.book__layout}
                   // style={{ backgroundColor: myColor }}
                 >
                   <img src={book.img} alt={book.slug} />
@@ -76,4 +67,17 @@ function Trending({ authors, books }: any) {
   );
 }
 
-export default Trending;
+export default Category;
+
+export async function getServerSideProps({ query }: any) {
+  const { category } = query;
+  await dbConnect();
+
+  const resp = await Book.find({ category: category });
+  const books = JSON.parse(JSON.stringify(resp));
+  return {
+    props: {
+      books,
+    },
+  };
+}

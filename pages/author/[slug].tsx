@@ -4,6 +4,7 @@ import dbConnect from "../../utils/mongo";
 import Author from "../../models/Author";
 
 function author({ author }: any) {
+  console.log(author);
   return (
     <div style={{ display: "flex" }}>
       <NavContainer />

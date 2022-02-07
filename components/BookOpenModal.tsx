@@ -12,11 +12,15 @@ type BookOpenModalProps = {
 };
 
 export type BookType = {
-  id: number;
+  _id: string;
   name: string;
   slug: string;
   author: string;
+  authorId: string;
   img: string;
+  createdAt?: string;
+  updatedAt?: string;
+  __v?: number;
 };
 
 function BookOpenModal({ open, book, handleClose }: BookOpenModalProps) {
