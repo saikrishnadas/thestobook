@@ -2,6 +2,7 @@ import NavContainer from "../../containers/NavContainer";
 import AuthorContainer from "../../containers/AuthorContainer";
 import dbConnect from "../../utils/mongo";
 import Author from "../../models/Author";
+// import { AuthorProps } from "../../utils/typings";
 
 function author({ author }: any) {
   console.log(author);

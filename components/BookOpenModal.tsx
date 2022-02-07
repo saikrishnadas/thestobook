@@ -4,23 +4,12 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import styles from "../styles/BookOpenModal.module.scss";
 import { useRouter } from "next/router";
+import { BookProps } from "../utils/typings";
 
 type BookOpenModalProps = {
   open: boolean;
-  book: BookType;
+  book: BookProps;
   handleClose: () => void;
-};
-
-export type BookType = {
-  _id: string;
-  name: string;
-  slug: string;
-  author: string;
-  authorId: string;
-  img: string;
-  createdAt?: string;
-  updatedAt?: string;
-  __v?: number;
 };
 
 function BookOpenModal({ open, book, handleClose }: BookOpenModalProps) {

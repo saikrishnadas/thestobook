@@ -15,12 +15,12 @@ export type BookType = {
 function SavedContainer() {
   //   const router = useRouter();
   const [open, setOpen] = useState(false);
-  const [book, setBook] = useState<BookType | null>(null);
+  const [book, setBook] = useState<any | null>(null);
 
   //   const savedSlug = router.query.slug;
   //   console.log(savedSlug);
 
-  const handleBookClick = (book: BookType) => {
+  const handleBookClick = (book: any) => {
     console.log(book);
     setBook(book);
     setOpen(true);

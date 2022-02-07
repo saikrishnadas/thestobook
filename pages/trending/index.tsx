@@ -3,8 +3,9 @@ import Trending from "../../containers/Trending";
 import dbConnect from "../../utils/mongo";
 import Author from "../../models/Author";
 import Book from "../../models/Book";
+import { HomeProps } from "../../utils/typings";
 
-function index({ authors, books }: any) {
+function index({ authors, books }: HomeProps) {
   return (
     <div style={{ display: "flex" }}>
       <NavContainer />

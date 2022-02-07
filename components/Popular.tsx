@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import styles from "../styles/MainContainer.module.scss";
 import BookOpenModal from "./BookOpenModal";
-import { BookType } from "../containers/AuthorContainer";
+// import { BookType } from "../containers/AuthorContainer";
 import { HomeProps } from "../utils/typings";
+import { BookProps } from "../utils/typings";
 
 function Popular({ books }: HomeProps) {
   const [open, setOpen] = useState(false);
-  const [book, setBook] = useState<BookType | null>(null);
-  const [popularBooks, setPopularBooks] = useState<BookType | null>(null);
+  const [book, setBook] = useState<BookProps | null>(null);
+  const [popularBooks, setPopularBooks] = useState<BookProps[] | null>(null);
   // const { colors } = useImageColor(
   //   "https://images-na.ssl-images-amazon.com/images/I/51FqtXUscFL.jpg",
   //   { cors: true, colors: 5 }
@@ -15,7 +16,7 @@ function Popular({ books }: HomeProps) {
   // const myColor = colors[0];
   // console.log(colors);
 
-  const handleBookClick = (book: any) => {
+  const handleBookClick = (book: BookProps) => {
     console.log(book);
     setBook(book);
     setOpen(true);
@@ -32,11 +33,11 @@ function Popular({ books }: HomeProps) {
       <div className={styles.popular__container} style={{ marginTop: "2em" }}>
         <h3>Popular Now</h3>
         <div className={styles.book__container}>
-          {books.slice(-5).map((book: any) => {
+          {books?.slice(-5).map((book: BookProps) => {
             return (
               <div
                 className={styles.book__card}
-                key={book.id}
+                key={book._id}
                 onClick={() => handleBookClick(book)}
               >
                 <div

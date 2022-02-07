@@ -2,15 +2,16 @@ import { useState } from "react";
 import styles from "../styles/MainContainer.module.scss";
 // import { books } from "../utils/data";
 import BookOpenModal from "./BookOpenModal";
-import { BookType } from "../containers/AuthorContainer";
+// import { BookType } from "../containers/AuthorContainer";
 import { HomeProps } from "../utils/typings";
+import { BookProps } from "../utils/typings";
 
 // @ts-ignore
 import useImageColor from "use-image-color";
 
 function NewAdded({ books }: HomeProps) {
   const [open, setOpen] = useState(false);
-  const [book, setBook] = useState<BookType | null>(null);
+  const [book, setBook] = useState<BookProps | null>(null);
   // const { colors } = useImageColor(
   //   "https://images-na.ssl-images-amazon.com/images/I/51FqtXUscFL.jpg",
   //   { cors: true, colors: 5 }
@@ -18,7 +19,7 @@ function NewAdded({ books }: HomeProps) {
   // const myColor = colors[0];
   // console.log(colors);
 
-  const handleBookClick = (book: any) => {
+  const handleBookClick = (book: BookProps) => {
     console.log(book);
     setBook(book);
     setOpen(true);
@@ -35,11 +36,11 @@ function NewAdded({ books }: HomeProps) {
       <div className={styles.newadded__container}>
         <h3>Newly Added</h3>
         <div className={styles.book__container}>
-          {books?.map((book: any) => {
+          {books?.map((book: BookProps) => {
             return (
               <div
                 className={styles.book__card}
-                key={book.id}
+                key={book._id}
                 onClick={() => handleBookClick(book)}
               >
                 <div

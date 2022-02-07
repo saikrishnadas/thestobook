@@ -5,26 +5,15 @@ import BookOpenModal from "../../components/BookOpenModal";
 import styles from "../../styles/Author.module.scss";
 import { useRouter } from "next/router";
 import NavContainer from "../../containers/NavContainer";
-
-export type BookType = {
-  _id: string;
-  name: string;
-  slug: string;
-  author: string;
-  authorId: string;
-  img: string;
-  createdAt?: string;
-  updatedAt?: string;
-  __v?: number;
-};
+import { BookProps } from "../../utils/typings";
 
 function Category({ books }: any) {
   const router = useRouter();
   const { category } = router.query;
   const [open, setOpen] = useState(false);
-  const [book, setBook] = useState<BookType | null>(null);
+  const [book, setBook] = useState<BookProps | null>(null);
 
-  const handleBookClick = (book: BookType) => {
+  const handleBookClick = (book: BookProps) => {
     console.log(book);
     setBook(book);
     setOpen(true);
@@ -43,7 +32,7 @@ function Category({ books }: any) {
           <p>{category}</p>
         </div>
         <div className={styles.author__book__container}>
-          {books.map((book: any) => {
+          {books.map((book: BookProps) => {
             return (
               <div
                 className={styles.book__card}

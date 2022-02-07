@@ -6,28 +6,17 @@ import { useRouter } from "next/router";
 // import { books } from "../utils/data";
 import BookOpenModal from "../components/BookOpenModal";
 import Link from "next/link";
+import { BookProps, AuthorProps, HomeProps } from "../utils/typings";
 
-export type BookType = {
-  _id: string;
-  name: string;
-  slug: string;
-  author: string;
-  authorId: string;
-  img: string;
-  createdAt?: string;
-  updatedAt?: string;
-  __v?: number;
-};
-
-function Trending({ authors, books }: any) {
+function Trending({ authors, books }: HomeProps) {
   //   const router = useRouter();
   const [open, setOpen] = useState(false);
-  const [book, setBook] = useState<BookType | null>(null);
+  const [book, setBook] = useState<BookProps | null>(null);
 
   //   const savedSlug = router.query.slug;
   //   console.log(savedSlug);
 
-  const handleBookClick = (book: BookType) => {
+  const handleBookClick = (book: BookProps) => {
     console.log(book);
     setBook(book);
     setOpen(true);
@@ -52,7 +41,7 @@ function Trending({ authors, books }: any) {
           <p>Trending</p>
         </div>
         <div className={classes.saved__book__container}>
-          {books.map((book: any) => {
+          {books?.map((book: BookProps) => {
             return (
               <div
                 className={classes.book__card}

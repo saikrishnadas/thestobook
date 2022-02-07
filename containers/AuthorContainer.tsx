@@ -4,26 +4,14 @@ import styles from "../styles/Author.module.scss";
 // import { books } from "../utils/data";
 import BookOpenModal from "../components/BookOpenModal";
 import axios from "axios";
-
-export type BookType = {
-  _id: string;
-  name: string;
-  slug: string;
-  author: string;
-  authorId: string;
-  img: string;
-  createdAt?: string;
-  updatedAt?: string;
-  __v?: number;
-};
-
-export type BooksType = BookType[];
+import { BookProps, AuthorProps } from "../utils/typings";
 
 function AuthorContainer({ author }: any) {
+  console.log("author", author);
   const router = useRouter();
-  const [books, setBooks] = useState<BooksType>([]);
+  const [books, setBooks] = useState<BookProps[]>([]);
   const [open, setOpen] = useState(false);
-  const [book, setBook] = useState<BookType | null>(null);
+  const [book, setBook] = useState<BookProps | null>(null);
 
   const authorSlug = router.query.slug;
   console.log(authorSlug);
@@ -42,7 +30,7 @@ function AuthorContainer({ author }: any) {
       });
   };
 
-  const handleBookClick = (book: BookType) => {
+  const handleBookClick = (book: BookProps) => {
     console.log(book);
     setBook(book);
     setOpen(true);
