@@ -12,11 +12,28 @@ import useImageColor from "use-image-color";
 function NewAdded({ books }: HomeProps) {
   const [open, setOpen] = useState(false);
   const [book, setBook] = useState<BookProps | null>(null);
+
+  // const [color, setColor] = useState([
+  //   "#df342b84",
+  //   "#e6be9688",
+  //   "#50ada496",
+  //   "#0b385b83",
+  //   "#efb91689",
+  //   "#e4b8aa7d",
+  //   "#daa5b87a",
+  //   "#efe9e178",
+  //   "#6004047a",
+  //   "#3644296f",
+  //   "#093b4d71",
+  // ]);
   // const { colors } = useImageColor(
-  //   "https://images-na.ssl-images-amazon.com/images/I/51FqtXUscFL.jpg",
+  //   "https://images-na.ssl-images-amazon.com/images/I/5177uhHF7VL._SX335_BO1,204,203,200_.jpg",
   //   { cors: true, colors: 5 }
   // );
-  // const myColor = colors[0];
+  // var myColor = "";
+  // if (colors) {
+  //   myColor = colors[0];
+  // }
   // console.log(colors);
 
   const handleBookClick = (book: BookProps) => {
@@ -45,7 +62,7 @@ function NewAdded({ books }: HomeProps) {
               >
                 <div
                   className={styles.book__layout}
-                  // style={{ backgroundColor: myColor }}
+                  // style={{ backgroundColor: `${color[index]}` }}
                 >
                   <img src={book.img} alt={book.slug} />
                 </div>
