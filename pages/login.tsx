@@ -3,6 +3,8 @@ import Button from "@mui/material/Button";
 import { Formik, Form, Field, FieldAttributes, useField } from "formik";
 import * as yup from "yup";
 import styles from "../styles/LoginPage.module.scss";
+import Link from "next/link";
+import axios from "axios";
 
 type InputFieldProps = {
   placeholder: string;
@@ -42,8 +44,20 @@ function Login() {
         <Formik
           initialValues={{ email: "", password: "" }}
           validationSchema={validationSchema}
-          onSubmit={(data) => {
-            console.log(data);
+          onSubmit={async (formData) => {
+            const email = formData.email;
+            const password = formData.password;
+            try {
+              const { data } = await axios.post("/api/user/login", {
+                email,
+                password,
+              });
+              alert("Succesfully Logged In");
+            } catch (err) {
+              alert(
+                err.response.data ? err.response.data.message : err.message
+              );
+            }
           }}
         >
           {({ values }) => (
@@ -72,10 +86,27 @@ function Login() {
         </Formik>
       </div>
       <span className={styles.login__message}>
-        <p>Don't have an account?</p> <p>Register</p>
+        <p>Don't have an account?</p>{" "}
+        <Link href="/register">
+          <p>Register</p>
+        </Link>
       </span>
     </div>
   );
 }
 
 export default Login;
+
+//redirect to login from reading
+//create a user model
+// seed users -- import bcrypt from "bcryptjs" .. bcrypt.hashSync('123456')
+// User find api
+//findOne using email, if user exists bcrypt.compareSync req password and user.password
+// create a token varibale = signToken and pass user to it
+// auth.js -- import jwt and create signToken function
+// return jwt.sign and pass all _id, email,name, isAdmin and secret key, { expiresIn:"30d"}
+
+//res.send token and user infos - password or else status 401 with inbvalid user or pass
+
+//onSubmit for form e.prev, make post req to user api login , data - email and pass inside try and catch alerts -- err.response.data ? err.response.data.message: err.message
+//email and pass state
