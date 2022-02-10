@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { Formik, Form, Field, FieldAttributes, useField } from "formik";
@@ -5,6 +7,11 @@ import * as yup from "yup";
 import styles from "../styles/LoginPage.module.scss";
 import Link from "next/link";
 import axios from "axios";
+import { useRecoilState } from "recoil";
+import { userAtom } from "../atoms/userAtom";
+
+// @ts-ignore
+import Cookies from "js-cookie";
 
 type InputFieldProps = {
   placeholder: string;
@@ -33,6 +40,16 @@ const validationSchema = yup.object({
 });
 
 function Login() {
+  const router = useRouter();
+  const [userInfo, setUserInfo] = useRecoilState(userAtom);
+  const { redirect }: any = router.query;
+
+  useEffect(() => {
+    if (userInfo) {
+      router.push("/");
+    }
+  }, []);
+
   return (
     <div className={styles.login__page}>
       <div className={styles.login__container}>
@@ -52,7 +69,9 @@ function Login() {
                 email,
                 password,
               });
-              alert("Succesfully Logged In");
+              setUserInfo(data);
+              Cookies.set("userInfo", JSON.stringify(data));
+              router.push(redirect);
             } catch (err) {
               alert(
                 err.response.data ? err.response.data.message : err.message
@@ -110,3 +129,14 @@ export default Login;
 
 //onSubmit for form e.prev, make post req to user api login , data - email and pass inside try and catch alerts -- err.response.data ? err.response.data.message: err.message
 //email and pass state
+
+//set state user atom -- data
+//if userInfo router.push("/") inside useEffect -- get the state from user atom
+// default state of atom is - Cookies.get("userInfo") ? Json parse the cookie : null -- npm js-cookie
+// set the cookie userInfo in login.tsx
+// redirect the user
+//check if the not userInfo in reading comp redirect to /login?redirect=/reading
+
+// If user is logged in show the name of user
+//logout button
+//logout click -- change user atom state and remove userinfo and router.push("/")
