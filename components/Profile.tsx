@@ -1,12 +1,23 @@
-import { useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 import { userAtom } from "../atoms/userAtom";
 import styles from "../styles/NavContainer.module.scss";
 import profilepic from "../public/profilepic.png";
 import nouser from "../public/nouser.png";
 import Link from "next/link";
+import { useRouter } from "next/router";
+
+//@ts-ignore
+import Cookies from "js-cookie";
 
 function Profile() {
-  const userInfo = useRecoilValue(userAtom);
+  const router = useRouter();
+  const [userInfo, setUserInfo] = useRecoilState(userAtom);
+
+  const handleLogout = () => {
+    setUserInfo(null);
+    Cookies.set("userInfo", null);
+    router.push("/");
+  };
 
   return (
     <div className={styles.profile}>
@@ -23,6 +34,16 @@ function Profile() {
               <div className={styles.profile__name}>
                 <h4>SAI KRISHNA DAS</h4>
                 <p>Admin</p>
+                <p
+                  style={{
+                    cursor: "pointer",
+                    textDecoration: "underline",
+                    color: "white",
+                  }}
+                  onClick={handleLogout}
+                >
+                  Logout
+                </p>
               </div>
             </>
           ) : (
@@ -33,6 +54,16 @@ function Profile() {
               <div className={styles.profile__name}>
                 <h4>{userInfo.name}</h4>
                 <p>Premium Member</p>
+                <p
+                  style={{
+                    cursor: "pointer",
+                    textDecoration: "underline",
+                    color: "white",
+                  }}
+                  onClick={handleLogout}
+                >
+                  Logout
+                </p>
               </div>
             </>
           )}
