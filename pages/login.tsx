@@ -71,7 +71,7 @@ function Login() {
               });
               setUserInfo(data);
               Cookies.set("userInfo", JSON.stringify(data));
-              router.push(redirect);
+              router.push(redirect || "/");
             } catch (err) {
               alert(
                 err.response.data ? err.response.data.message : err.message
