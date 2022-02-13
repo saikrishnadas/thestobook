@@ -5,8 +5,11 @@ import Modal from "@mui/material/Modal";
 import styles from "../styles/BookOpenModal.module.scss";
 import { useRouter } from "next/router";
 import { BookProps } from "../utils/typings";
-import {useSetRecoilState} from "recoil";
-import {bookAtom} from "../atoms/bookAtom";
+import { useSetRecoilState } from "recoil";
+import { bookAtom } from "../atoms/bookAtom";
+import axios from "axios";
+
+// @ts-ignore
 import Cookies from "js-cookie";
 
 type BookOpenModalProps = {
@@ -17,7 +20,6 @@ type BookOpenModalProps = {
 
 function BookOpenModal({ open, book, handleClose }: BookOpenModalProps) {
   const router = useRouter();
-  const currentBook = useSetRecoilState(bookAtom);
 
   const bookStyle = {
     position: "absolute" as "absolute",
@@ -33,11 +35,22 @@ function BookOpenModal({ open, book, handleClose }: BookOpenModalProps) {
     p: 4,
   };
 
+  const currentBook = () => {
+    axios
+      .post("/api/books/currentBook", book)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
   const handleButtonClick = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
     console.log("Reading....");
-    currentBook(book);
-    Cookies.set("currentBook",book);
+    console.log("Onclick", book);
+    currentBook();
     router.push("/reading");
   };
 
