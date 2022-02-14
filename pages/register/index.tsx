@@ -66,6 +66,7 @@ function Register() {
             email: "",
             password: "",
             confirmpassword: "",
+            img: "",
           }}
           validationSchema={validationSchema}
           onSubmit={async (formData) => {
@@ -73,6 +74,7 @@ function Register() {
             const password = formData.password;
             const name = formData.name;
             const confirmpassword = formData.confirmpassword;
+            const img = formData.img;
             if (password !== confirmpassword) {
               alert("Passwords doesn't match");
               return;
@@ -83,6 +85,7 @@ function Register() {
                 name,
                 email,
                 password,
+                img,
               });
               setUserInfo(data);
               Cookies.set("userInfo", JSON.stringify(data));
@@ -120,6 +123,12 @@ function Register() {
                 value={values.confirmpassword}
                 name="confirmpassword"
                 type="password"
+              />
+              <InputField
+                placeholder="Image Url"
+                value={values.img}
+                name="img"
+                type="text"
               />
               <Button
                 variant="contained"

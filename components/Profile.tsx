@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 
 //@ts-ignore
 import Cookies from "js-cookie";
+import { useEffect } from "react";
 
 function Profile() {
   const router = useRouter();
@@ -18,6 +19,12 @@ function Profile() {
     Cookies.set("userInfo", null);
     router.push("/");
   };
+
+  useEffect(() => {
+    const data = JSON.parse(Cookies.get("userInfo"));
+    console.log("data from Cookie", data);
+    console.log("data from atom", userInfo);
+  }, []);
 
   return (
     <div className={styles.profile}>
@@ -46,7 +53,7 @@ function Profile() {
           ) : (
             <>
               <div>
-                <img src={userInfo.src} alt="" />
+                <img src={userInfo.img} alt="" />
               </div>
               <div className={styles.profile__name}>
                 <h4>{userInfo.name}</h4>

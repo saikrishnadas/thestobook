@@ -1,18 +1,38 @@
+import { useState, useEffect } from "react";
 import Profile from "../components/Profile";
 import MenuSelect from "../components/MenuSelect";
 import styles from "../styles/NavContainer.module.scss";
 import Current from "../components/Current";
 import { useRecoilValue } from "recoil";
 import { userAtom } from "../atoms/userAtom";
+import axios from "axios";
 
 function NavContainer() {
   const userInfo = useRecoilValue(userAtom);
+  const [currentBook, setCurrentBook] = useState<any>();
+
+  const getCurrentBook = () => {
+    axios
+      .get("/api/books/currentBook")
+      .then(function (response) {
+        console.log(response);
+        setCurrentBook(response.data[0]);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
+  useEffect(() => {
+    getCurrentBook();
+  }, [currentBook]);
+
   return (
     <div className={styles.container}>
       <Profile />
       <MenuSelect />
       {userInfo ? (
-        <Current />
+        <Current currentBook={currentBook} />
       ) : (
         <div
           className={styles.current__container}

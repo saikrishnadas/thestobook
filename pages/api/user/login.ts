@@ -22,6 +22,7 @@ export default async function findUser(req:NextApiRequest, res:NextApiResponse<a
               _id: user._id,
               name: user.name,
               email: user.email,
+              img: user.img,
               isAdmin: user.isAdmin,
           })
       } else{
