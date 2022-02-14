@@ -26,13 +26,10 @@ function Profile() {
           {userInfo.isAdmin ? (
             <>
               <div>
-                <img
-                  src="https://miro.medium.com/fit/c/1360/1360/1*prGxEhjvfMxpeagLYWxA4w.jpeg"
-                  alt="sai"
-                />
+                <img src={userInfo.img} alt="" />
               </div>
               <div className={styles.profile__name}>
-                <h4>SAI KRISHNA DAS</h4>
+                <h4>{userInfo.name}</h4>
                 <p>Admin</p>
                 <p
                   style={{
@@ -49,7 +46,7 @@ function Profile() {
           ) : (
             <>
               <div>
-                <img src={profilepic.src} alt="" />
+                <img src={userInfo.src} alt="" />
               </div>
               <div className={styles.profile__name}>
                 <h4>{userInfo.name}</h4>

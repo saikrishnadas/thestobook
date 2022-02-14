@@ -1,17 +1,20 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import styles from "../styles/MainContainer.module.scss";
 // import { books } from "../utils/data";
 import BookOpenModal from "./BookOpenModal";
 // import { BookType } from "../containers/AuthorContainer";
 import { HomeProps } from "../utils/typings";
 import { BookProps } from "../utils/typings";
+import Progress from "./progress";
 
 // @ts-ignore
 import useImageColor from "use-image-color";
 
 function NewAdded({ books }: HomeProps) {
+  const scrollRef = useRef<any>(null);
   const [open, setOpen] = useState(false);
   const [book, setBook] = useState<BookProps | null>(null);
+  const [progress, setProgress] = useState(0);
 
   // const [color, setColor] = useState([
   //   "#df342b84",
@@ -47,12 +50,57 @@ function NewAdded({ books }: HomeProps) {
     setBook(null);
   };
 
+  const onClickScroll = (scrollOffset: any) => {
+    scrollRef.current.scrollLeft += scrollOffset;
+  };
+
+  const handleProgress = (arrow: any) => {
+    if (arrow === "minus") {
+      setProgress(progress - 20);
+    } else {
+      setProgress(progress + 20);
+    }
+  };
+
   return (
     <>
       <BookOpenModal open={open} handleClose={handleClose} book={book!} />
       <div className={styles.newadded__container}>
-        <h3>Newly Added</h3>
-        <div className={styles.book__container}>
+        <span
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+        >
+          <h3>Newly Added</h3>
+          {/* <span style={{ display: "flex", alignItems: "center" }}>
+            <img
+              src={leftarrow.src}
+              style={{ cursor: "pointer", opacity: "0.5" }}
+              onClick={() => {
+                onClickScroll(-100);
+                setProgress(progress - 20);
+              }}
+            />
+            <img
+              src={rightarrow.src}
+              style={{ cursor: "pointer" }}
+              onClick={() => {
+                onClickScroll(100);
+                setProgress(progress + 20);
+              }}
+            />
+            <Box sx={{ width: "161px" }}>
+              <LinearProgress variant="determinate" value={progress} />
+            </Box>
+          </span> */}
+          <Progress
+            onClickScroll={onClickScroll}
+            handleProgress={handleProgress}
+            progress={progress}
+          />
+        </span>
+        <div className={styles.book__container} ref={scrollRef}>
           {books?.map((book: BookProps) => {
             return (
               <div

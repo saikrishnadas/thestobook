@@ -16,3 +16,14 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.MuiLinearProgress-root {
+  background-color: #c4c4c4;
+  height: 7px;
+  border-radius: 10px;
+}
+
+.MuiLinearProgress-bar {
+  background-color: #293159;
+  border-radius: 10px;
+}
