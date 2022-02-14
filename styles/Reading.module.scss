@@ -1,18 +1,34 @@
 .reading__container {
-  display: flex;
+  // display: flex;
   height: 100vh;
+}
+
+.nav__container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100vw;
+  height: 60px;
+  background-color: #29315a;
+  color: #ffffff;
+  p {
+    cursor: pointer;
+    &:hover {
+      color: #ffffff7c;
+    }
+  }
 }
 
 .profile__division {
   width: 20%;
   height: 228px;
-  background: #29315a;
+  background-color: #29315a;
   border-radius: 0px 20px 20px 0px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 2%;
+  margin-top: 1%;
   img {
     width: 70px;
     height: 70px;
@@ -36,7 +52,7 @@
 
 .paper__container {
   margin-left: 4%;
-  margin-top: 2%;
+  margin-top: 1%;
   width: 70%;
   height: 85vh;
   background: #f0ece3;
@@ -73,12 +89,12 @@
 }
 
 .arrow__container {
-    display:flex;
-    width: 102.46px;
-height: 37px;
-    img{
-width: 37px;
-height: 37px;
-object-fit:contain;
-    }
+  display: flex;
+  width: 102.46px;
+  height: 37px;
+  img {
+    width: 37px;
+    height: 37px;
+    object-fit: contain;
+  }
 }
