@@ -73,27 +73,6 @@ function NewAdded({ books }: HomeProps) {
           }}
         >
           <h3>Newly Added</h3>
-          {/* <span style={{ display: "flex", alignItems: "center" }}>
-            <img
-              src={leftarrow.src}
-              style={{ cursor: "pointer", opacity: "0.5" }}
-              onClick={() => {
-                onClickScroll(-100);
-                setProgress(progress - 20);
-              }}
-            />
-            <img
-              src={rightarrow.src}
-              style={{ cursor: "pointer" }}
-              onClick={() => {
-                onClickScroll(100);
-                setProgress(progress + 20);
-              }}
-            />
-            <Box sx={{ width: "161px" }}>
-              <LinearProgress variant="determinate" value={progress} />
-            </Box>
-          </span> */}
           <Progress
             onClickScroll={onClickScroll}
             handleProgress={handleProgress}
