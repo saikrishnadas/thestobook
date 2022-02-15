@@ -42,9 +42,19 @@ function Sbooks() {
     setOpenSuggest(false);
   };
 
-  const makeSuggest = (e: any) => {
+  const makeSuggest = (e: any, bookSuggestion: any) => {
     e.preventDefault();
-    console.log("You made a suggestion ");
+    console.log("You made a suggestion ", bookSuggestion);
+
+    axios
+      .post("/api/suggestion", bookSuggestion)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
     setOpenSuggest(false);
   };
 
