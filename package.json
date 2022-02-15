@@ -26,6 +26,7 @@
     "react-dom": "17.0.2",
     "recoil": "^0.6.1",
     "sass": "^1.49.4",
+    "slugify": "^1.6.5",
     "use-image-color": "0.0.9",
     "yup": "^0.32.11"
   },

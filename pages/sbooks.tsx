@@ -47,7 +47,7 @@ function Sbooks() {
     console.log("You made a suggestion ", bookSuggestion);
 
     axios
-      .post("/api/suggestion", bookSuggestion)
+      .post("/api/suggestion", { name: bookSuggestion })
       .then(function (response) {
         console.log(response);
       })
