@@ -15,17 +15,7 @@ function MainContainer({ books, authors }: HomeProps) {
     <div className={styles.main__container}>
       <TopMain />
       <Link href="/author">
-        <p
-          style={{
-            width: "100%",
-            height: "0%",
-            textAlign: "end",
-            paddingRight: "5%",
-            cursor: "pointer",
-          }}
-        >
-          View More
-        </p>
+        <p className={styles.view__more}>View More</p>
       </Link>
       <Authors authors={authors} />
       <NewAdded books={books} />

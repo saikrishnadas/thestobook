@@ -4,7 +4,7 @@ import BookOpenModal from "./BookOpenModal";
 // import { BookType } from "../containers/AuthorContainer";
 import { HomeProps } from "../utils/typings";
 import { BookProps } from "../utils/typings";
-import Progress from "./progress";
+import ProgressBar from "./ProgressBar";
 
 function Popular({ books }: HomeProps) {
   const scrollRef = useRef<any>(null);
@@ -54,7 +54,7 @@ function Popular({ books }: HomeProps) {
           }}
         >
           <h3>Popular Now</h3>
-          <Progress
+          <ProgressBar
             onClickScroll={onClickScroll}
             handleProgress={handleProgress}
             progress={progress}

@@ -5,7 +5,7 @@ import BookOpenModal from "./BookOpenModal";
 // import { BookType } from "../containers/AuthorContainer";
 import { HomeProps } from "../utils/typings";
 import { BookProps } from "../utils/typings";
-import Progress from "./progress";
+import ProgressBar from "./ProgressBar";
 
 // @ts-ignore
 import useImageColor from "use-image-color";
@@ -73,7 +73,28 @@ function NewAdded({ books }: HomeProps) {
           }}
         >
           <h3>Newly Added</h3>
-          <Progress
+          {/* <span style={{ display: "flex", alignItems: "center" }}>
+            <img
+              src={leftarrow.src}
+              style={{ cursor: "pointer", opacity: "0.5" }}
+              onClick={() => {
+                onClickScroll(-100);
+                setProgress(progress - 20);
+              }}
+            />
+            <img
+              src={rightarrow.src}
+              style={{ cursor: "pointer" }}
+              onClick={() => {
+                onClickScroll(100);
+                setProgress(progress + 20);
+              }}
+            />
+            <Box sx={{ width: "161px" }}>
+              <LinearProgress variant="determinate" value={progress} />
+            </Box>
+          </span> */}
+          <ProgressBar
             onClickScroll={onClickScroll}
             handleProgress={handleProgress}
             progress={progress}

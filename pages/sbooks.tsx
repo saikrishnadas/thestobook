@@ -12,11 +12,13 @@ import axios from "axios";
 import { useRecoilValue } from "recoil";
 import { searchAtom } from "../atoms/searchedBooks";
 import TopMain from "../components/TopMain";
+import SuggestModal from "../components/SuggestModal";
 
 function Sbooks() {
   const searchBooks = useRecoilValue(searchAtom);
   const [open, setOpen] = useState(false);
   const [book, setBook] = useState<BookProps | null>(null);
+  const [openSuggest, setOpenSuggest] = useState(false);
 
   console.log("searchBooks:", searchBooks);
 
@@ -31,8 +33,28 @@ function Sbooks() {
     setBook(null);
   };
 
+  const handleSuggestClick = () => {
+    console.log("Sggest a book");
+    setOpenSuggest(true);
+  };
+
+  const handleSuggestClose = () => {
+    setOpenSuggest(false);
+  };
+
+  const makeSuggest = (e: any) => {
+    e.preventDefault();
+    console.log("You made a suggestion ");
+    setOpenSuggest(false);
+  };
+
   return (
     <>
+      <SuggestModal
+        openSuggest={openSuggest}
+        handleSuggestClose={handleSuggestClose}
+        makeSuggest={makeSuggest}
+      />
       <BookOpenModal open={open} handleClose={handleClose} book={book!} />
       <div style={{ display: "flex" }}>
         <NavContainer />
@@ -48,6 +70,7 @@ function Sbooks() {
                 textDecoration: "underline",
                 cursor: "pointer",
               }}
+              onClick={handleSuggestClick}
             >
               {" "}
               Suggest a book to add.

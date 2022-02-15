@@ -69,7 +69,6 @@ function Login() {
                 email,
                 password,
               });
-              console.log("data from login", data);
               setUserInfo(data);
               Cookies.set("userInfo", JSON.stringify(data));
               router.push(redirect || "/");

@@ -24,5 +24,4 @@ export type AuthorProps = {
 export type HomeProps = {
     books?: BookProps[];
     authors?: AuthorProps[];
-    current?:BookProps[];
   };
