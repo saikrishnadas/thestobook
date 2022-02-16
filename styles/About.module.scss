@@ -1,0 +1,80 @@
+@import "./colors.scss";
+
+.about_page {
+  width: 100vw;
+  height: 100vh;
+  background-color: $primaryBackground;
+}
+
+.navbar {
+  display: flex;
+  color: white;
+  justify-content: space-evenly;
+
+  p {
+    cursor: pointer;
+    &:hover {
+      color: rgba(255, 255, 255, 0.445);
+    }
+  }
+}
+
+.about {
+  color: white;
+  width: 80vw;
+  margin-left: 6%;
+  margin-top: 4%;
+  p:first-child {
+    font-size: 30px;
+  }
+  p:last-child {
+    font-size: 18px;
+    font-weight: lighter;
+  }
+}
+
+.developer {
+  color: white;
+  width: 80vw;
+  margin-left: 6%;
+  margin-top: 4%;
+  p:first-child {
+    font-size: 30px;
+  }
+  img {
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+  }
+}
+
+.developer__details {
+  display: flex;
+  align-items: center;
+}
+
+.developer__tags {
+  margin-left: 2%;
+}
+
+.icons {
+  display: flex;
+  justify-content: space-evenly;
+
+  img {
+    cursor: pointer;
+  }
+}
+
+.about__footer {
+  width: 100vw;
+  text-align: center;
+  p:first-child {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.418);
+  }
+  p:last-child {
+    font-size: 15px;
+    color: white;
+  }
+}
