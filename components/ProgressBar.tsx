@@ -8,7 +8,7 @@ function ProgressBar({ onClickScroll, handleProgress, progress }: any) {
     <span style={{ display: "flex", alignItems: "center" }}>
       <img
         src={leftarrow.src}
-        style={{ cursor: "pointer", opacity: "0.5" }}
+        style={{ cursor: "pointer", opacity: "0.8" }}
         onClick={() => {
           onClickScroll(-100);
           handleProgress("minus");
@@ -22,9 +22,9 @@ function ProgressBar({ onClickScroll, handleProgress, progress }: any) {
           handleProgress("plus");
         }}
       />
-      <Box sx={{ width: "161px" }}>
+      {/* <Box sx={{ width: "161px" }}>
         <LinearProgress variant="determinate" value={progress} />
-      </Box>
+      </Box> */}
     </span>
   );
 }
