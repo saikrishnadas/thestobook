@@ -7,6 +7,7 @@ import nouser from "../public/nouser.png";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import LogoutModal from "./LogoutModal";
+import AdminModal from "./AdminModal";
 
 //@ts-ignore
 import Cookies from "js-cookie";
@@ -15,6 +16,7 @@ function Profile() {
   const router = useRouter();
   const [userInfo, setUserInfo] = useRecoilState(userAtom);
   const [logoutModal, setLogoutModal] = useState(false);
+  const [adminModal, setAdminModal] = useState(false);
 
   const handleLogout = () => {
     setUserInfo(null);
@@ -31,14 +33,23 @@ function Profile() {
     setLogoutModal(false);
   };
 
+  const handleAdd = () => {
+    console.log("open Modal for adding");
+  };
+
   const user = Cookies.get("userInfo")
     ? JSON.parse(Cookies.get("userInfo"))
     : null;
 
   console.log(user);
 
+  const handleAdminClose = () => {
+    setAdminModal(false);
+  };
+
   return (
     <>
+      <AdminModal handleAdminClose={handleAdminClose} adminModal={adminModal} />
       <LogoutModal
         handleClose={handleClose}
         logoutModal={logoutModal}
@@ -52,7 +63,16 @@ function Profile() {
             </div>
             <div className={styles.profile__name}>
               <h4>{user.name}</h4>
-              {user.isAdmin ? <p>Admin</p> : <p>Premium Member</p>}
+              {user.isAdmin ? (
+                <p
+                  style={{ cursor: "pointer" }}
+                  onClick={() => setAdminModal(true)}
+                >
+                  Admin
+                </p>
+              ) : (
+                <p>Premium Member</p>
+              )}
               <p
                 style={{
                   cursor: "pointer",

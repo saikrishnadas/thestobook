@@ -1,0 +1,38 @@
+@import "./colors.scss";
+
+.admin__container {
+  display: flex;
+  flex-direction: column;
+  //   justify-content: center;
+  //   align-items: center;
+
+  .admin__button {
+    width: 309px;
+    height: 57px;
+    background-color: $primaryBackground;
+    border-radius: 20px;
+    color: white;
+    box-shadow: 0px 0px 30px #29315aa8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+    cursor: pointer;
+  }
+
+  .admin__menu {
+    cursor: pointer;
+  }
+}
+
+.add__form {
+  display: flex;
+  flex-direction: column;
+
+  .add__button {
+    background-color: #29315a;
+    &:hover {
+      background-color: #475bc0;
+    }
+  }
+}
