@@ -4,13 +4,38 @@ import styles from "../styles/NavContainer.module.scss";
 import Current from "../components/Current";
 import { useRecoilValue } from "recoil";
 import { userAtom } from "../atoms/userAtom";
+import axios from "axios";
+import { useSetRecoilState } from "recoil";
+import { currentAtom } from "../atoms/currentAtom";
+import { useEffect } from "react";
+import Link from "next/link";
 
 function NavContainer() {
   const userInfo = useRecoilValue(userAtom);
+  const setCurrentBook = useSetRecoilState(currentAtom);
+
+  const getCurrentBook = () => {
+    axios
+      .get("/api/books/currentBook")
+      .then(function (response) {
+        console.log(response);
+        setCurrentBook(response.data[0]);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
+  useEffect(() => {
+    getCurrentBook();
+  }, [setCurrentBook]);
+
   return (
     <>
       <div className={styles.container}>
-        <p className={styles.about__us}>About The Stobook</p>
+        <Link href="/about">
+          <p className={styles.about__us}>About The Stobook</p>
+        </Link>
         <Profile />
         <MenuSelect />
         {userInfo ? (

@@ -31,6 +31,12 @@ function Profile() {
     setLogoutModal(false);
   };
 
+  const user = Cookies.get("userInfo")
+    ? JSON.parse(Cookies.get("userInfo"))
+    : null;
+
+  console.log(user);
+
   return (
     <>
       <LogoutModal
@@ -39,49 +45,25 @@ function Profile() {
         handleLogout={handleLogout}
       />
       <div className={styles.profile}>
-        {userInfo ? (
+        {user ? (
           <>
-            {userInfo.isAdmin ? (
-              <>
-                <div>
-                  <img src={userInfo.img} alt="" />
-                </div>
-                <div className={styles.profile__name}>
-                  <h4>{userInfo.name}</h4>
-                  <p>Admin</p>
-                  <p
-                    style={{
-                      cursor: "pointer",
-                      textDecoration: "underline",
-                      color: "white",
-                    }}
-                    onClick={handleLogoutClick}
-                  >
-                    Logout
-                  </p>
-                </div>
-              </>
-            ) : (
-              <>
-                <div>
-                  <img src={userInfo.src} alt="" />
-                </div>
-                <div className={styles.profile__name}>
-                  <h4>{userInfo.name}</h4>
-                  <p>Premium Member</p>
-                  <p
-                    style={{
-                      cursor: "pointer",
-                      textDecoration: "underline",
-                      color: "white",
-                    }}
-                    onClick={handleLogoutClick}
-                  >
-                    Logout
-                  </p>
-                </div>
-              </>
-            )}
+            <div>
+              <img src={nouser.src} alt="" />
+            </div>
+            <div className={styles.profile__name}>
+              <h4>{user.name}</h4>
+              {user.isAdmin ? <p>Admin</p> : <p>Premium Member</p>}
+              <p
+                style={{
+                  cursor: "pointer",
+                  textDecoration: "underline",
+                  color: "white",
+                }}
+                onClick={handleLogoutClick}
+              >
+                Logout
+              </p>
+            </div>
           </>
         ) : (
           <>

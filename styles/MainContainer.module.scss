@@ -17,14 +17,25 @@
   }
 }
 
-.search__bar {
-  width: 25.125em;
+.search__bar__container {
+  width: 23.125em;
   height: 3.625em;
   background: #ffffff;
-  border: none;
   box-shadow: 0px 0px 28px rgba(0, 0, 0, 0.158);
   border-radius: 10px;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.search__bar {
+  width: 22.125em;
+  height: 2.625em;
+  background: #ffffff;
+  border: none;
+  // box-shadow: 0px 0px 28px rgba(0, 0, 0, 0.158);
+  // border-radius: 10px;
+  outline: none;
 }
 
 .author__container {

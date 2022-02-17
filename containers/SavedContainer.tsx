@@ -37,7 +37,7 @@ function SavedContainer() {
         <div className={styles.saved__tag}>
           <p>Saved</p>
         </div>
-        <div className={styles.saved__book__container}>
+        {/* <div className={styles.saved__book__container}>
           {books.map((book) => {
             return (
               <div
@@ -56,7 +56,7 @@ function SavedContainer() {
               </div>
             );
           })}
-        </div>
+        </div> */}
       </div>
     </>
   );
