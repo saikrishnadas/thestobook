@@ -4,6 +4,7 @@ import styles from "../styles/AdminModal.module.scss";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import axios from "axios";
+import slugify from "react-slugify";
 
 type InputFieldProps = {
   placeholder: string;
@@ -28,7 +29,6 @@ const InputField = ({ placeholder, type, ...props }: InputFieldProps) => {
 
 const validationSchema = yup.object({
   name: yup.string().required(),
-  slug: yup.string().required(),
   author: yup.string().required(),
   img: yup.string().required(),
   authorId: yup.string().required(),
@@ -41,7 +41,6 @@ function AddBook({ handleAdminClose }: any) {
       <Formik
         initialValues={{
           name: "",
-          slug: "",
           author: "",
           img: "",
           authorId: "",
@@ -49,7 +48,16 @@ function AddBook({ handleAdminClose }: any) {
         }}
         validationSchema={validationSchema}
         onSubmit={async (formData) => {
-          const resp = await axios.post("/api/books", formData);
+          const { name, author, img, authorId, category } = formData;
+          const slug = slugify(name.toLowerCase());
+          const resp = await axios.post("/api/books", {
+            name: name,
+            slug: slug,
+            author: author,
+            img: img,
+            authorId: authorId,
+            category: category,
+          });
           console.log(resp);
           handleAdminClose();
         }}
@@ -60,12 +68,6 @@ function AddBook({ handleAdminClose }: any) {
               placeholder="Enter the name"
               value={values.name}
               name="name"
-              type="text"
-            />
-            <InputField
-              placeholder="Enter the slug"
-              value={values.slug}
-              name="slug"
               type="text"
             />
             <InputField

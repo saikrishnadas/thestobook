@@ -18,7 +18,6 @@ export default async function createUser(req:NextApiRequest, res:NextApiResponse
           name:req.body.name,
           email:req.body.email,
           password:bcrypt.hashSync(req.body.password),
-          img:req.body.img,
           isAdmin:false,    
         })
         const user = await newUser.save();
@@ -29,7 +28,6 @@ export default async function createUser(req:NextApiRequest, res:NextApiResponse
               _id: user._id,
               name: user.name,
               email: user.email,
-              img:user.img,
               isAdmin: user.isAdmin,
           })
       

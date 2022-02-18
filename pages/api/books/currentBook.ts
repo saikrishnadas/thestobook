@@ -19,9 +19,17 @@ export default async function currentBook(req:NextApiRequest, res:NextApiRespons
 
   if (method === "POST") {
     try {
-      await Current.remove({});
-      const product = await Current.create(req.body);
-      res.status(201).json(product);
+      const getCurrent:any = await Current.find({});
+      const found = getCurrent.some((el :any) => el.user === req.body.user);
+      console.log("found",found);
+      if(found){
+        await Current.remove({user:req.body.user});
+        const current = await Current.create(req.body);
+        res.status(201).json(current);
+      } else {
+        const newcurrent = await Current.create(req.body);
+        res.status(201).json(newcurrent);
+      }
     } catch (err) {
       res.status(500).json(err);
     }

@@ -19,7 +19,13 @@ function NavContainer() {
       .get("/api/books/currentBook")
       .then(function (response) {
         console.log(response);
-        setCurrentBook(response.data[0]);
+        const found = response.data.filter(
+          (el: any) => el.user === userInfo.email
+        );
+        console.log(found);
+        if (found) {
+          setCurrentBook(found[0]);
+        }
       })
       .catch(function (error) {
         console.log(error);
@@ -27,8 +33,9 @@ function NavContainer() {
   };
 
   useEffect(() => {
+    console.log("Current Book render issue........");
     getCurrentBook();
-  }, [setCurrentBook]);
+  }, []);
 
   return (
     <>

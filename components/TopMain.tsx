@@ -37,7 +37,18 @@ function TopMain() {
       <h2>Explore</h2>
       <form onSubmit={onSearch}>
         <div className={styles.search__bar__container}>
-          <SearchIcon style={searchIconStyle} />
+          <button
+            style={{
+              outline: "none",
+              border: "none",
+              backgroundColor: "#ffffff",
+              cursor: "pointer",
+            }}
+            type="submit"
+          >
+            <SearchIcon style={searchIconStyle} />
+          </button>
+
           <input
             placeholder="Search to find a book"
             className={styles.search__bar}

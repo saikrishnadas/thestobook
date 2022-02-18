@@ -36,8 +36,21 @@ function BookOpenModal({ open, book, handleClose }: BookOpenModalProps) {
   };
 
   const currentBook = () => {
+    const { name, slug, category, author, authorId, img } = book;
+    const userInfo = Cookies.get("userInfo")
+      ? JSON.parse(Cookies.get("userInfo"))
+      : null;
+    const user = userInfo.email;
     axios
-      .post("/api/books/currentBook", book)
+      .post("/api/books/currentBook", {
+        name: name,
+        slug: slug,
+        category: category,
+        author: author,
+        authorId: authorId,
+        img: img,
+        user: user,
+      })
       .then(function (response) {
         console.log(response);
       })
