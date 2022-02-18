@@ -14,7 +14,6 @@
   display: grid;
   grid-template-columns: auto auto auto auto auto;
   height: 70vh;
-  overflow-y: scroll;
   margin-left: 60px;
   &::-webkit-scrollbar {
     display: none;
@@ -48,5 +47,42 @@
   p {
     font-size: 14px;
     text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .author__tag {
+    margin-left: 5px;
+    p {
+      font-size: 20px;
+      margin-left: 15px;
+    }
+  }
+
+  .author__container {
+    width: 100%;
+    grid-template-columns: auto auto auto;
+    gap: 0px 0px;
+    height: 70vh;
+    margin-left: 20px;
+  }
+
+  .author__card {
+    margin-left: 2%;
+    width: 120px;
+    height: 220px;
+    .author__layout {
+      width: 91.03px;
+      height: 127px;
+      border-radius: 8px;
+      img {
+        width: 84px;
+        height: 120px;
+        border-radius: 4px;
+      }
+    }
+    p {
+      font-size: 12px;
+    }
   }
 }

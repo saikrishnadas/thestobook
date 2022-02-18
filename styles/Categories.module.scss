@@ -42,3 +42,34 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .categories__page {
+    margin-left: 30px;
+    p {
+      font-size: 20px;
+    }
+    .categories__container {
+      grid-template-columns: auto auto;
+      gap: 0px 50px;
+
+      .category__layout {
+        margin-top: 0px;
+        div {
+          width: 101px;
+          height: 159px;
+          border-radius: 10px;
+          box-shadow: 5px 4px 13px rgba(0, 0, 0, 0.103);
+          img {
+            width: 100px;
+            height: 100px;
+            margin-top: 50%;
+          }
+        }
+        p {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

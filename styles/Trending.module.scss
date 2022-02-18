@@ -61,3 +61,48 @@
     text-align: center;
   }
 }
+
+@media (max-width: 768px) {
+  .explore__author__tag {
+    font-size: 15px;
+    margin-left: 5%;
+  }
+
+  .saved__tag {
+    margin-left: 0;
+    img {
+      width: 80px;
+      height: 80px;
+      filter: drop-shadow(0px 0px 17px #29315a21);
+    }
+    p {
+      font-size: 20px;
+      margin-left: 24px;
+    }
+  }
+
+  .saved__book__container {
+    grid-template-columns: auto auto auto;
+    height: 80vh;
+    margin-left: 20px;
+  }
+
+  .book__card {
+    margin-left: 0%;
+    width: 120px;
+    height: 220px;
+    .book__layout {
+      width: 91.03px;
+      height: 127px;
+      background: rgba(41, 49, 90, 0.58);
+      border-radius: 10px;
+      img {
+        width: 70px;
+        height: 104px;
+      }
+    }
+    p {
+      font-size: 10px;
+    }
+  }
+}
