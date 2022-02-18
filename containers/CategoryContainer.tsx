@@ -57,7 +57,7 @@ function CategoryContainer() {
               <p>Non-Fiction</p>
             </div>
           </Link>
-          <Link href="categories/sciencefiction">
+          <Link href="categories/science-fiction">
             <div className={styles.category__layout}>
               <div>
                 <img src={scienceFictionIcon.src} alt="" />

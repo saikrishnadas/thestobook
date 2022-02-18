@@ -24,9 +24,9 @@ function MenuSelect() {
         </div>
       </Link>
       {user && (
-        <Link href="/saved">
+        <Link href="/author">
           <div className={styles.menuItem}>
-            <p>Saved</p>
+            <p>Authors</p>
             <p style={{ fontWeight: "normal" }}>{`>`}</p>
           </div>
         </Link>

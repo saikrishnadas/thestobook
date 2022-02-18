@@ -29,29 +29,26 @@ const InputField = ({ placeholder, type, ...props }: InputFieldProps) => {
 const validationSchema = yup.object({
   name: yup.string().required(),
   slug: yup.string().required(),
-  author: yup.string().required(),
-  img: yup.string().required(),
   authorId: yup.string().required(),
-  category: yup.string().required(),
+  img: yup.string().required(),
 });
 
-function AddBook({ handleAdminClose }: any) {
+function AddAuthor({ handleAdminClose }: any) {
   return (
     <div>
       <Formik
         initialValues={{
           name: "",
           slug: "",
-          author: "",
           img: "",
           authorId: "",
-          category: "",
         }}
         validationSchema={validationSchema}
         onSubmit={async (formData) => {
-          const resp = await axios.post("/api/books", formData);
+          const resp = await axios.post("/api/author", formData);
           console.log(resp);
           handleAdminClose();
+          //   console.log(formData);
         }}
       >
         {({ values }) => (
@@ -69,12 +66,6 @@ function AddBook({ handleAdminClose }: any) {
               type="text"
             />
             <InputField
-              placeholder="Enter the author"
-              value={values.author}
-              name="author"
-              type="text"
-            />
-            <InputField
               placeholder="Enter the img"
               value={values.img}
               name="img"
@@ -84,12 +75,6 @@ function AddBook({ handleAdminClose }: any) {
               placeholder="Enter the authorId"
               value={values.authorId}
               name="authorId"
-              type="text"
-            />
-            <InputField
-              placeholder="Enter the category"
-              value={values.category}
-              name="category"
               type="text"
             />
             <Button
@@ -106,4 +91,4 @@ function AddBook({ handleAdminClose }: any) {
   );
 }
 
-export default AddBook;
+export default AddAuthor;

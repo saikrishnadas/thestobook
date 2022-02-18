@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import styles from "../styles/AdminModal.module.scss";
 import AddBook from "./AddBook";
+import AddAuthor from "./AddAuthor";
 
 function AdminModal({ handleAdminClose, adminModal }: any) {
   const [showAuthor, setShowAuthor] = useState(false);
@@ -48,8 +49,8 @@ function AdminModal({ handleAdminClose, adminModal }: any) {
               Add Book
             </p>
           </div>
-          {showAuthor && <p>Author Tab</p>}
-          {showBook && <AddBook />}
+          {showAuthor && <AddAuthor handleAdminClose={handleAdminClose} />}
+          {showBook && <AddBook handleAdminClose={handleAdminClose} />}
         </Box>
       </Modal>
     </>
