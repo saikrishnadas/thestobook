@@ -1,0 +1,47 @@
+@import "./colors.scss";
+
+.menu__container {
+  width: 70%;
+  height: 100vh;
+  background-color: $primaryBackground;
+  position: absolute;
+  z-index: 10;
+  color: white;
+}
+
+.menu__container__nouser {
+  width: 70%;
+  height: fit-content;
+  background-color: $primaryBackground;
+  position: absolute;
+  z-index: 10;
+  color: white;
+}
+
+.about__us {
+  position: absolute;
+  top: 0;
+  text-align: start;
+  margin: 0%;
+  width: 100%;
+  font-size: 8px;
+  padding: 14px;
+  cursor: pointer;
+  &:hover {
+    color: #ffffff70;
+  }
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  text-align: end;
+  margin: 0%;
+  width: 100%;
+  font-size: 8px;
+  padding: 14px;
+  cursor: pointer;
+  &:hover {
+    color: #ffffff70;
+  }
+}

@@ -132,4 +132,108 @@
   .container {
     display: none;
   }
+
+  .profile {
+    margin-left: 0.8125em;
+    margin-top: 3.5em;
+    margin-bottom: 3em;
+    .profile__name {
+      margin-left: 1.2em;
+      h4 {
+        font-size: 15px;
+      }
+      p {
+        font-size: 10px;
+      }
+    }
+    img {
+      width: 3.125em;
+      height: 3.375em;
+      filter: drop-shadow(0px 1px 32px rgba(234, 19, 19, 0.363));
+    }
+  }
+
+  .menu {
+    height: 1.625em;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 3em;
+    .menuItem {
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      padding: 0.9375em 2.8125em 0.9375em 2.8125em;
+      position: relative;
+      font-weight: bold;
+      font-size: 15px;
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.253);
+        transition: opacity 1s ease-in-out;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        margin-left: 2.1875em;
+        left: 0;
+        bottom: 0;
+        border-bottom: 2px solid rgba(255, 253, 253, 0.09);
+        width: 89%;
+        height: 2px;
+      }
+    }
+  }
+
+  .current__container {
+    margin-top: 5.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h3 {
+      font-weight: bold;
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.52);
+    }
+    .current__reading {
+      display: flex;
+      background-color: white;
+      width: 13.5625em;
+      height: 5.8125em;
+      align-items: center;
+      border-radius: 10px;
+      cursor: pointer;
+      img {
+        width: 2.9375em;
+        height: 4.8125em;
+        margin-left: 0.625em;
+        margin-right: 1.5625em;
+        object-fit: contain;
+        filter: drop-shadow(4px 1px 20px #29315a);
+      }
+      p:first-child {
+        color: black;
+        font-size: 12px;
+        font-weight: bold;
+        margin: 0;
+      }
+      p:last-child {
+        color: black;
+        font-size: 10px;
+        margin: 0;
+      }
+    }
+  }
+}
+
+.menu__icon {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .menu__icon {
+    display: block;
+    position: absolute;
+    margin-left: 2%;
+  }
 }

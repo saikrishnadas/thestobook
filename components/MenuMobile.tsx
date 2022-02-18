@@ -1,23 +1,24 @@
-import { useState } from "react";
+import { useEffect } from "react";
+import styles from "../styles/MenuMobile.module.scss";
 import Profile from "../components/Profile";
-import MenuSelect from "../components/MenuSelect";
-import styles from "../styles/NavContainer.module.scss";
+import Link from "next/link";
 import Current from "../components/Current";
 import { useRecoilValue } from "recoil";
 import { userAtom } from "../atoms/userAtom";
-import axios from "axios";
 import { useSetRecoilState } from "recoil";
 import { currentAtom } from "../atoms/currentAtom";
-import { useEffect } from "react";
-import Link from "next/link";
-import MenuIcon from "@mui/icons-material/Menu";
-import MenuMobile from "../components/MenuMobile";
+import axios from "axios";
 
-function NavContainer() {
+//@ts-ignore
+import Cookies from "js-cookie";
+import MenuSelect from "./MenuSelect";
+
+function MenuMobile({ handleMenuClose }: any) {
+  const user = Cookies.get("userInfo")
+    ? JSON.parse(Cookies.get("userInfo"))
+    : null;
   const userInfo = useRecoilValue(userAtom);
   const setCurrentBook = useSetRecoilState(currentAtom);
-  const [menu, setMenu] = useState(false);
-
   const getCurrentBook = () => {
     axios
       .get("/api/books/currentBook")
@@ -36,29 +37,23 @@ function NavContainer() {
       });
   };
 
-  const handleMenu = () => {
-    setMenu(true);
-  };
-
-  const handleMenuClose = () => {
-    setMenu(false);
-  };
-
   useEffect(() => {
     console.log("Current Book render issue........");
     getCurrentBook();
   }, []);
-
   return (
-    <>
-      {menu && <MenuMobile handleMenuClose={handleMenuClose} />}
-      <span className={styles.menu__icon} onClick={handleMenu}>
-        <MenuIcon />
-      </span>
-      <div className={styles.container}>
+    <div
+      className={`${
+        user ? styles.menu__container : styles.menu__container__nouser
+      }`}
+    >
+      <>
         <Link href="/about">
           <p className={styles.about__us}>About The Stobook</p>
         </Link>
+        <p className={styles.close} onClick={handleMenuClose}>
+          Close
+        </p>
         <Profile />
         <MenuSelect />
         {userInfo ? (
@@ -85,13 +80,18 @@ function NavContainer() {
 
         <p
           className={styles.footer__copyright}
-          style={{ fontSize: "12px", margin: "0" }}
+          style={{
+            fontSize: "8px",
+            width: "100%",
+            textAlign: "center",
+            marginTop: "10%",
+          }}
         >
           Copyright © The Stobook
         </p>
-      </div>
-    </>
+      </>
+    </div>
   );
 }
 
-export default NavContainer;
+export default MenuMobile;

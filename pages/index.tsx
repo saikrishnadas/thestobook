@@ -9,6 +9,8 @@ import dbConnect from "../utils/mongo";
 import Book from "../models/Book";
 import { HomeProps } from "../utils/typings";
 import Author from "../models/Author";
+import MenuIcon from "@mui/icons-material/Menu";
+import MenuMobile from "../components/MenuMobile";
 
 const Home: NextPage<HomeProps> = ({ books, authors }) => {
   return (
