@@ -46,7 +46,7 @@ function Popular({ books }: HomeProps) {
   return (
     <>
       <BookOpenModal open={open} handleClose={handleClose} book={book!} />
-      <div className={styles.popular__container} style={{ marginTop: "2em" }}>
+      <div className={styles.popular__container}>
         <span
           style={{
             display: "flex",

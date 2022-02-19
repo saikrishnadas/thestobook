@@ -76,6 +76,7 @@
 
 .popular__container {
   @include bookContainer;
+  margin-top: 2.4em;
 }
 
 .view__more {
@@ -90,28 +91,36 @@
   }
 }
 
-@media (max-width: 768px) {
+//................................................................//
+//................................................................//
+// MAX 480
+//................................................................//
+//................................................................//
+@media (max-width: 480px) {
   .main__container {
     width: 100%;
   }
 
   .top__container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     h2 {
-      font-size: 1em;
+      font-size: 2em;
       font-weight: bold;
     }
   }
 
   .search__bar__container {
-    width: 16.125em;
-    height: 2.625em;
-    box-shadow: 0px 0px 28px rgba(0, 0, 0, 0.082);
+    width: 22.125em;
+    height: 3em;
+    box-shadow: 0px 0px 28px rgba(0, 0, 0, 0.185);
     border-radius: 8px;
   }
 
   .search__bar {
-    width: 15.125em;
-    height: 1.625em;
+    width: 20.125em;
+    height: 2.625em;
   }
 
   .author__container {
@@ -131,6 +140,8 @@
 
   .newadded__container {
     @include bookContainer;
+    padding-right: 2%;
+    height: 30%;
     h3 {
       font-size: 15px;
     }
@@ -156,6 +167,9 @@
 
   .popular__container {
     @include bookContainer;
+    padding-right: 2%;
+    height: 30%;
+    margin-top: 0;
     h3 {
       font-size: 15px;
     }
@@ -181,5 +195,112 @@
 
   .view__more {
     font-size: 15px;
+  }
+}
+
+//................................................................//
+//................................................................//
+// MAX 820
+//................................................................//
+//................................................................//
+@media (min-width: 480px) and (max-width: 820px) {
+  .main__container {
+    width: 100%;
+  }
+
+  .top__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h2 {
+      font-size: 3em;
+      font-weight: bold;
+    }
+  }
+
+  .search__bar__container {
+    width: 24.125em;
+    height: 4em;
+    box-shadow: 0px 0px 28px rgba(0, 0, 0, 0.185);
+    border-radius: 8px;
+  }
+
+  .search__bar {
+    width: 22.125em;
+    height: 3.625em;
+  }
+
+  .author__container {
+    height: 10.75em;
+    justify-content: start;
+    .author__card {
+      margin-left: 5.5%;
+      img {
+        width: 5.5em;
+        height: 5.5em;
+      }
+      p {
+        font-size: 11.2px;
+      }
+    }
+  }
+
+  .newadded__container {
+    @include bookContainer;
+    margin-top: 3%;
+    padding-right: 2%;
+    height: 25%;
+    h3 {
+      font-size: 20px;
+    }
+    .book__container {
+      .book__card {
+        margin-left: 4%;
+        .book__layout {
+          width: 111.03px;
+          height: 147px;
+          background: rgba(41, 49, 90, 0.58);
+          border-radius: 6px;
+          img {
+            width: 87px;
+            height: 128px;
+          }
+        }
+        p {
+          font-size: 12.5px;
+        }
+      }
+    }
+  }
+
+  .popular__container {
+    @include bookContainer;
+    padding-right: 2%;
+    height: 29%;
+    h3 {
+      font-size: 20px;
+    }
+    .book__container {
+      .book__card {
+        margin-left: 4%;
+        .book__layout {
+          width: 111.03px;
+          height: 147px;
+          background: rgba(41, 49, 90, 0.58);
+          border-radius: 6px;
+          img {
+            width: 87px;
+            height: 128px;
+          }
+        }
+        p {
+          font-size: 12.5px;
+        }
+      }
+    }
+  }
+
+  .view__more {
+    font-size: 17px;
   }
 }
