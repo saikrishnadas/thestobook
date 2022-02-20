@@ -27,7 +27,7 @@ function Category({ books }: any) {
     <div style={{ display: "flex" }}>
       <NavContainer />
       <BookOpenModal open={open} handleClose={handleClose} book={book!} />
-      <div style={{ height: "100vh", width: "65%" }}>
+      <div className={styles.author__page}>
         <div className={styles.author__tag}>
           <p>{category}</p>
         </div>

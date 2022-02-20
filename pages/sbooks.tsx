@@ -69,22 +69,11 @@ function Sbooks() {
       <div style={{ display: "flex" }}>
         <NavContainer />
 
-        <div style={{ height: "100vh", width: "65%" }}>
+        <div className={styles.suggestion__page}>
           <TopMain />
-          <span style={{ display: "flex", marginLeft: "3%" }}>
+          <span className={styles.suggestion__p}>
             <p>Couldn't find the book?</p>
-            <p
-              style={{
-                marginLeft: "5px",
-                color: "blue",
-                textDecoration: "underline",
-                cursor: "pointer",
-              }}
-              onClick={handleSuggestClick}
-            >
-              {" "}
-              Suggest a book to add.
-            </p>
+            <p onClick={handleSuggestClick}> Suggest a book to add.</p>
           </span>
           <div className={styles.saved__book__container}>
             {searchBooks?.map((book: any) => {

@@ -48,7 +48,7 @@ function AuthorContainer({ author }: { author: AuthorProps }) {
   return (
     <>
       <BookOpenModal open={open} handleClose={handleClose} book={book!} />
-      <div style={{ height: "100vh", width: "65%" }}>
+      <div className={styles.author__page}>
         <div className={styles.author__tag}>
           <img src={author.img} alt="" />
           <p>{author.name}</p>

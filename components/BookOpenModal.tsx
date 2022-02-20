@@ -26,8 +26,6 @@ function BookOpenModal({ open, book, handleClose }: BookOpenModalProps) {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: 619,
-    height: 303,
     bgcolor: "background.paper",
     border: "none",
     boxShadow: 50,
@@ -40,7 +38,7 @@ function BookOpenModal({ open, book, handleClose }: BookOpenModalProps) {
     const userInfo = Cookies.get("userInfo")
       ? JSON.parse(Cookies.get("userInfo"))
       : null;
-    const user = userInfo.email;
+    const user = userInfo?.email;
     axios
       .post("/api/books/currentBook", {
         name: name,

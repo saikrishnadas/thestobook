@@ -10,8 +10,6 @@ function SuggestModal({ openSuggest, handleSuggestClose, makeSuggest }: any) {
     top: "50%",
     left: "55%",
     transform: "translate(-50%, -50%)",
-    width: 460,
-    height: 260,
     bgcolor: "background.paper",
     border: "none",
     boxShadow: 50,

@@ -13,8 +13,6 @@ function LogoutModal({ logoutModal, handleClose, handleLogout }: any) {
     top: "50%",
     left: "55%",
     transform: "translate(-50%, -50%)",
-    width: 550,
-    height: 280,
     bgcolor: "background.paper",
     border: "none",
     boxShadow: 50,
