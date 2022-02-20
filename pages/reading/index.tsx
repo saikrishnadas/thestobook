@@ -8,6 +8,7 @@ import { useRecoilState } from "recoil";
 import { userAtom } from "../../atoms/userAtom";
 import CircularProgress from "@mui/material/CircularProgress";
 import Link from "next/link";
+import nouser from "../../public/nouser.png";
 
 //@ts-ignore
 import Cookies from "js-cookie";
@@ -61,11 +62,8 @@ function index() {
           </div>
           <div style={{ display: "flex" }}>
             <div className={styles.profile__division}>
-              <img
-                src="https://miro.medium.com/fit/c/1360/1360/1*prGxEhjvfMxpeagLYWxA4w.jpeg"
-                alt="sai"
-              />
-              <h3>SAI KRISHNA DAS</h3>
+              <img src={nouser.src} alt="" />
+              <h3>{userInfo?.name}</h3>
               <p>Premium Member</p>
             </div>
 
