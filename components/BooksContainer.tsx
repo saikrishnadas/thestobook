@@ -10,7 +10,7 @@ type BooksContainerProps = {
 };
 
 function BooksContainer({ title, books }: BooksContainerProps) {
-  const scrollRef = useRef<any | null>(null);
+  const scrollRef = useRef<HTMLDivElement | null>(null);
   const [open, setOpen] = useState(false);
   const [book, setBook] = useState<BookProps | null>(null);
   const [progress, setProgress] = useState(0);
@@ -26,7 +26,7 @@ function BooksContainer({ title, books }: BooksContainerProps) {
   };
 
   const onClickScroll = (scrollOffset: number) => {
-    scrollRef.current.scrollLeft += scrollOffset;
+    scrollRef!.current!.scrollLeft += scrollOffset;
   };
 
   const handleProgress = (arrow: string) => {
