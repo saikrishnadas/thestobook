@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useRecoilState } from "recoil";
 import { userAtom } from "../atoms/userAtom";
 import styles from "../styles/NavContainer.module.scss";
-import profilepic from "../public/profilepic.png";
 import nouser from "../public/nouser.png";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -33,15 +32,9 @@ function Profile() {
     setLogoutModal(false);
   };
 
-  const handleAdd = () => {
-    console.log("open Modal for adding");
-  };
-
   const user = Cookies.get("userInfo")
     ? JSON.parse(Cookies.get("userInfo"))
     : null;
-
-  console.log(user);
 
   const handleAdminClose = () => {
     setAdminModal(false);

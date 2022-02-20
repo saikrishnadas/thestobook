@@ -8,12 +8,17 @@ import { userAtom } from "../atoms/userAtom";
 import { useSetRecoilState } from "recoil";
 import { currentAtom } from "../atoms/currentAtom";
 import axios from "axios";
+import MenuSelect from "./MenuSelect";
+import { BookProps } from "../utils/typings";
 
 //@ts-ignore
 import Cookies from "js-cookie";
-import MenuSelect from "./MenuSelect";
 
-function MenuMobile({ handleMenuClose }: any) {
+type MenuMobileProps = {
+  handleMenuClose: () => void;
+};
+
+function MenuMobile({ handleMenuClose }: MenuMobileProps) {
   const user = Cookies.get("userInfo")
     ? JSON.parse(Cookies.get("userInfo"))
     : null;
@@ -23,11 +28,9 @@ function MenuMobile({ handleMenuClose }: any) {
     axios
       .get("/api/books/currentBook")
       .then(function (response) {
-        console.log(response);
         const found = response.data.filter(
-          (el: any) => el.user === userInfo.email
+          (el: BookProps) => el.user === userInfo.email
         );
-        console.log(found);
         if (found) {
           setCurrentBook(found[0]);
         }
@@ -38,7 +41,6 @@ function MenuMobile({ handleMenuClose }: any) {
   };
 
   useEffect(() => {
-    console.log("Current Book render issue........");
     getCurrentBook();
   }, []);
   return (
@@ -56,27 +58,7 @@ function MenuMobile({ handleMenuClose }: any) {
         </p>
         <Profile />
         <MenuSelect />
-        {userInfo ? (
-          <Current />
-        ) : (
-          <div
-            className={styles.current__container}
-            style={{ visibility: "hidden" }}
-          >
-            <h3>Current Reading Book</h3>
-
-            <div className={styles.current__reading}>
-              <img
-                src="https://images-na.ssl-images-amazon.com/images/I/419Lr6CbZ7L._SX323_BO1,204,203,200_.jpg"
-                alt="bookimg"
-              />
-              <div>
-                <p>The girl in room 105</p>
-                <p>Chetan Bagat</p>
-              </div>
-            </div>
-          </div>
-        )}
+        {userInfo && <Current />}
 
         <p
           className={styles.footer__copyright}

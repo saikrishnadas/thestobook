@@ -1,16 +1,12 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.scss";
-import Layout from "../containers/NavContainer";
 import NavContainer from "../containers/NavContainer";
 import MainContainer from "../containers/MainContainer";
 import dbConnect from "../utils/mongo";
 import Book from "../models/Book";
 import { HomeProps } from "../utils/typings";
 import Author from "../models/Author";
-import MenuIcon from "@mui/icons-material/Menu";
-import MenuMobile from "../components/MenuMobile";
+import styles from "../styles/Home.module.scss";
 
 const Home: NextPage<HomeProps> = ({ books, authors }) => {
   return (
@@ -19,11 +15,11 @@ const Home: NextPage<HomeProps> = ({ books, authors }) => {
         <title>The Stobook</title>
         <meta
           name="description"
-          content="stobook is a free app that allows the user to read any book for free"
+          content="The Stobook is an open library where you can read any book for free. It features a customizable auto function that suggests depending on user preferences."
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/book.ico" />
       </Head>
-      <div style={{ display: "flex" }}>
+      <div className={styles.index__container}>
         <NavContainer />
         <MainContainer books={books} authors={authors} />
       </div>

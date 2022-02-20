@@ -12,6 +12,7 @@ import { useEffect } from "react";
 import Link from "next/link";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuMobile from "../components/MenuMobile";
+import { BookProps } from "../utils/typings";
 
 function NavContainer() {
   const userInfo = useRecoilValue(userAtom);
@@ -22,11 +23,9 @@ function NavContainer() {
     axios
       .get("/api/books/currentBook")
       .then(function (response) {
-        console.log(response);
         const found = response.data.filter(
-          (el: any) => el.user === userInfo.email
+          (el: BookProps) => el.user === userInfo.email
         );
-        console.log(found);
         if (found) {
           setCurrentBook(found[0]);
         }
@@ -45,7 +44,6 @@ function NavContainer() {
   };
 
   useEffect(() => {
-    console.log("Current Book render issue........");
     getCurrentBook();
   }, []);
 
@@ -61,33 +59,13 @@ function NavContainer() {
         </Link>
         <Profile />
         <MenuSelect />
-        {userInfo ? (
-          <Current />
-        ) : (
-          <div
-            className={styles.current__container}
-            style={{ visibility: "hidden" }}
-          >
-            <h3>Current Reading Book</h3>
-
-            <div className={styles.current__reading}>
-              <img
-                src="https://images-na.ssl-images-amazon.com/images/I/419Lr6CbZ7L._SX323_BO1,204,203,200_.jpg"
-                alt="bookimg"
-              />
-              <div>
-                <p>The girl in room 105</p>
-                <p>Chetan Bagat</p>
-              </div>
-            </div>
-          </div>
-        )}
+        {userInfo && <Current />}
 
         <p
           className={styles.footer__copyright}
           style={{ fontSize: "12px", margin: "0" }}
         >
-          Copyright © The Stobook
+          Copyrights © The Stobook
         </p>
       </div>
     </>

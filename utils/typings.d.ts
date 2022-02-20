@@ -5,6 +5,7 @@ export type BookProps = {
     author: string;
     authorId:string;
     img: string;
+    user?:string;
     category?:string;
     createdAt?: string;
     updatedAt?: string;
