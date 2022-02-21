@@ -51,7 +51,6 @@ function BooksContainer({ title, books }: BooksContainerProps) {
           <ProgressBar
             onClickScroll={onClickScroll}
             handleProgress={handleProgress}
-            progress={progress}
           />
         </span>
         <div className={styles.book__container} ref={scrollRef}>

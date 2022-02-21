@@ -3,7 +3,20 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import styles from "../styles/SuggestModal.module.scss";
 
-function SuggestModal({ openSuggest, handleSuggestClose, makeSuggest }: any) {
+type SuggestModalProps = {
+  openSuggest: boolean;
+  handleSuggestClose: () => void;
+  makeSuggest: (
+    e: React.FormEvent<HTMLFormElement>,
+    bookSuggestion: string
+  ) => void;
+};
+
+function SuggestModal({
+  openSuggest,
+  handleSuggestClose,
+  makeSuggest,
+}: SuggestModalProps) {
   const [bookSuggestion, setBookSuggestion] = useState("");
   const bookStyle = {
     position: "absolute" as "absolute",

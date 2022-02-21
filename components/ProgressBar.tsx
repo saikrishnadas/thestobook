@@ -3,7 +3,12 @@ import leftarrow from "../public/leftarrow.svg";
 // import Box from "@mui/material/Box";
 // import LinearProgress from "@mui/material/LinearProgress";
 
-function ProgressBar({ onClickScroll, handleProgress }: any) {
+type ProgressBarProps = {
+  onClickScroll: (scrollOffset: number) => void;
+  handleProgress: (arrow: string) => void;
+};
+
+function ProgressBar({ onClickScroll, handleProgress }: ProgressBarProps) {
   return (
     <span style={{ display: "flex", alignItems: "center" }}>
       <img

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import TextField from "@mui/material/TextField";
 import styles from "../styles/MainContainer.module.scss";
 import SearchIcon from "@mui/icons-material/Search";
@@ -13,7 +13,7 @@ import Cookies from "js-cookie";
 function TopMain() {
   const router = useRouter();
   const searchBooks = useSetRecoilState(searchAtom);
-  const [search, setSearch] = useState<any>(null);
+  const [search, setSearch] = useState<string | null>(null);
 
   const searchIconStyle = {
     width: "25px",
@@ -21,7 +21,7 @@ function TopMain() {
     color: "#02020252",
   };
 
-  const onSearch = async (e: any) => {
+  const onSearch = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const resp = await axios.post("/api/books/search", {
       search: search,
