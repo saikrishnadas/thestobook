@@ -1,12 +1,11 @@
-import { useState, useEffect } from "react";
 import styles from "../styles/NavContainer.module.scss";
 import Link from "next/link";
-import axios from "axios";
 import { useRecoilValue } from "recoil";
 import { currentAtom } from "../atoms/currentAtom";
+import { BookProps } from "../utils/typings";
 
 function Current() {
-  const currentBook = useRecoilValue<any>(currentAtom);
+  const currentBook = useRecoilValue<BookProps | null>(currentAtom);
 
   return (
     <div className={styles.current__container}>

@@ -1,4 +1,4 @@
-import { Formik, Form, Field, FieldAttributes, useField } from "formik";
+import { Formik, Form, FieldAttributes, useField } from "formik";
 import * as yup from "yup";
 import styles from "../styles/AdminModal.module.scss";
 import TextField from "@mui/material/TextField";
@@ -10,6 +10,10 @@ type InputFieldProps = {
   placeholder: string;
   type: string;
 } & FieldAttributes<{}>;
+
+type AddBookProps = {
+  handleAdminClose: () => void;
+};
 
 const InputField = ({ placeholder, type, ...props }: InputFieldProps) => {
   const [field, meta] = useField(props);
@@ -35,7 +39,7 @@ const validationSchema = yup.object({
   category: yup.string().required(),
 });
 
-function AddBook({ handleAdminClose }: any) {
+function AddBook({ handleAdminClose }: AddBookProps) {
   return (
     <div>
       <Formik
@@ -58,7 +62,6 @@ function AddBook({ handleAdminClose }: any) {
             authorId: authorId,
             category: category,
           });
-          console.log(resp);
           handleAdminClose();
         }}
       >

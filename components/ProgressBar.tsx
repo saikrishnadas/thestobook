@@ -1,9 +1,9 @@
 import rightarrow from "../public/rightarrow.svg";
 import leftarrow from "../public/leftarrow.svg";
-import Box from "@mui/material/Box";
-import LinearProgress from "@mui/material/LinearProgress";
+// import Box from "@mui/material/Box";
+// import LinearProgress from "@mui/material/LinearProgress";
 
-function ProgressBar({ onClickScroll, handleProgress, progress }: any) {
+function ProgressBar({ onClickScroll, handleProgress }: any) {
   return (
     <span style={{ display: "flex", alignItems: "center" }}>
       <img

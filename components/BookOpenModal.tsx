@@ -1,12 +1,8 @@
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import styles from "../styles/BookOpenModal.module.scss";
 import { useRouter } from "next/router";
 import { BookProps } from "../utils/typings";
-import { useSetRecoilState } from "recoil";
-import { bookAtom } from "../atoms/bookAtom";
 import axios from "axios";
 
 // @ts-ignore
@@ -59,8 +55,6 @@ function BookOpenModal({ open, book, handleClose }: BookOpenModalProps) {
 
   const handleButtonClick = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
-    console.log("Reading....");
-    console.log("Onclick", book);
     currentBook();
     router.push("/reading");
   };
@@ -74,12 +68,6 @@ function BookOpenModal({ open, book, handleClose }: BookOpenModalProps) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={bookStyle}>
-          {/* <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            {book?.name}
-          </Typography> */}
           <div className={styles.modal__container}>
             <img src={book?.img} alt={book?.slug} />
             <div className={styles.modal__details}>

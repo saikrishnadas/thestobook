@@ -5,7 +5,12 @@ import styles from "../styles/AdminModal.module.scss";
 import AddBook from "./AddBook";
 import AddAuthor from "./AddAuthor";
 
-function AdminModal({ handleAdminClose, adminModal }: any) {
+type AdminModalProps = {
+  handleAdminClose: () => void;
+  adminModal: boolean;
+};
+
+function AdminModal({ handleAdminClose, adminModal }: AdminModalProps) {
   const [showAuthor, setShowAuthor] = useState(false);
   const [showBook, setShowBook] = useState(false);
 
