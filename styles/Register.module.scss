@@ -61,6 +61,11 @@
   }
 }
 
+.textField {
+  width: 30vw;
+  margin-bottom: 10px;
+}
+
 //................................................................//
 //................................................................//
 // MAX 480
@@ -77,8 +82,8 @@
   }
 
   .register__container {
-    width: 41em;
-    height: 34em;
+    width: 45em;
+    height: 35em;
     background-color: #fafafa;
     display: flex;
     flex-direction: column;
@@ -86,7 +91,7 @@
     border-radius: 10px;
 
     h2 {
-      font-size: 36px;
+      font-size: 42px;
       font-weight: bold;
       margin: 40px 0 0 0;
     }
@@ -95,7 +100,7 @@
       margin: 0 0 30px 0;
       font-weight: bold;
       color: rgba(0, 0, 0, 0.4);
-      font-size: 14px;
+      font-size: 16px;
     }
 
     p {
@@ -127,5 +132,10 @@
       text-decoration: underline;
       cursor: pointer;
     }
+  }
+
+  .textField {
+    width: 100vw;
+    margin-bottom: 10px;
   }
 }

@@ -23,7 +23,7 @@ const InputField = ({ placeholder, type, ...props }: InputFieldProps) => {
   const errorText = meta.error && meta.touched ? meta.error : "";
   return (
     <TextField
-      style={{ width: "30vw", marginBottom: "10px" }}
+      className={styles.textField}
       id="outlined-error-helper-text"
       placeholder={placeholder}
       type={type}

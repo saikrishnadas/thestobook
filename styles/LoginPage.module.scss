@@ -61,6 +61,11 @@
   }
 }
 
+.textField {
+  width: 30vw;
+  margin-bottom: 10px;
+}
+
 //................................................................//
 //................................................................//
 // MAX 480
@@ -126,5 +131,10 @@
       text-decoration: underline;
       cursor: pointer;
     }
+  }
+
+  .textField {
+    width: 72vw;
+    margin-bottom: 10px;
   }
 }
