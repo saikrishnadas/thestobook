@@ -40,6 +40,19 @@
   }
 }
 
+.box__container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 640px;
+  height: 340px;
+  border: none;
+  background-color: white;
+  border-radius: 10px;
+  padding: 4%;
+}
+
 //................................................................//
 //................................................................//
 // MAX 480
@@ -85,6 +98,19 @@
       margin-top: 10%;
       cursor: pointer;
     }
+  }
+
+  .box__container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    height: 200px;
+    border: none;
+    background-color: white;
+    border-radius: 10px;
+    padding: 4%;
   }
 }
 
