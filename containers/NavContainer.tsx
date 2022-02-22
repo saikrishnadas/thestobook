@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import Profile from "../components/Profile";
 import MenuSelect from "../components/MenuSelect";
 import styles from "../styles/NavContainer.module.scss";
@@ -42,7 +42,7 @@ function NavContainer() {
     setMenu(false);
   };
 
-  useMemo(() => {
+  useLayoutEffect(() => {
     getCurrentBook();
   }, []);
 
