@@ -27,7 +27,7 @@ function AuthorContainer({ author }: { author: AuthorProps }) {
       });
   };
 
-  const handleBookClick = (book: BookProps) => {
+  const handleBookClick = (book: any) => {
     setBook(book);
     setOpen(true);
   };

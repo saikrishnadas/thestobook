@@ -10,7 +10,7 @@ import Cookies from "js-cookie";
 
 type BookOpenModalProps = {
   open: boolean;
-  book: BookProps;
+  book: any;
   handleClose: () => void;
 };
 

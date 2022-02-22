@@ -6,15 +6,11 @@ import { useRouter } from "next/router";
 // import { books } from "../utils/data";
 import BookOpenModal from "../components/BookOpenModal";
 import Link from "next/link";
-import { BookProps, AuthorProps, HomeProps } from "../utils/typings";
+import { BookProps, HomeProps } from "../utils/typings";
 
 function Trending({ authors, books }: HomeProps) {
-  //   const router = useRouter();
   const [open, setOpen] = useState(false);
   const [book, setBook] = useState<BookProps | null>(null);
-
-  //   const savedSlug = router.query.slug;
-  //   console.log(savedSlug);
 
   const handleBookClick = (book: BookProps) => {
     setBook(book);
@@ -27,11 +23,18 @@ function Trending({ authors, books }: HomeProps) {
   };
   return (
     <div className={styles.main__container}>
-      <span style={{ display: "flex", alignItems: "center" }}>
+      <span
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          paddingRight: "10px",
+        }}
+      >
         <p className={classes.explore__author__tag}>Explore Authors</p>{" "}
-        {/* <Link href="/author">
+        <Link href="/author">
           <div style={{ cursor: "pointer" }}>View More</div>
-        </Link> */}
+        </Link>
       </span>
       <Authors authors={authors} />
       <BookOpenModal open={open} handleClose={handleClose} book={book!} />
@@ -47,10 +50,7 @@ function Trending({ authors, books }: HomeProps) {
                 key={book._id}
                 onClick={() => handleBookClick(book)}
               >
-                <div
-                  className={classes.book__layout}
-                  // style={{ backgroundColor: myColor }}
-                >
+                <div className={classes.book__layout}>
                   <img src={book.img} alt={book.slug} />
                 </div>
 
