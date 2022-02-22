@@ -1,0 +1,131 @@
+.register__page {
+  width: 100vw;
+  height: 100vh;
+  background-color: #29315a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.register__container {
+  width: 41em;
+  height: 34em;
+  background-color: #fafafa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+
+  h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin: 40px 0 0 0;
+  }
+
+  .register__text {
+    margin: 0 0 30px 0;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 14px;
+  }
+
+  p {
+    font-weight: bold;
+    font-size: 14px;
+  }
+}
+
+.register__form {
+  display: flex;
+  flex-direction: column;
+
+  .register__button {
+    background-color: #29315a;
+    &:hover {
+      background-color: #475bc0;
+    }
+  }
+}
+
+.register__message {
+  display: flex;
+  p:first-child {
+    color: white;
+    margin-right: 10px;
+  }
+  p:last-child {
+    color: #2d66f7;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+//................................................................//
+//................................................................//
+// MAX 480
+//................................................................//
+//................................................................//
+@media (max-width: 480px) {
+  .register__page {
+    width: 200vw;
+    height: 200vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .register__container {
+    width: 41em;
+    height: 34em;
+    background-color: #fafafa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+
+    h2 {
+      font-size: 36px;
+      font-weight: bold;
+      margin: 40px 0 0 0;
+    }
+
+    .register__text {
+      margin: 0 0 30px 0;
+      font-weight: bold;
+      color: rgba(0, 0, 0, 0.4);
+      font-size: 14px;
+    }
+
+    p {
+      font-weight: bold;
+      font-size: 14px;
+    }
+  }
+
+  .register__form {
+    display: flex;
+    flex-direction: column;
+
+    .register__button {
+      background-color: #29315a;
+      &:hover {
+        background-color: #475bc0;
+      }
+    }
+  }
+
+  .register__message {
+    display: flex;
+    p:first-child {
+      color: white;
+      margin-right: 10px;
+    }
+    p:last-child {
+      color: #2d66f7;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}

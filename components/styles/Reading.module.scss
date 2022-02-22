@@ -1,0 +1,204 @@
+.reading__container {
+  // display: flex;
+  height: 100vh;
+}
+
+.nav__container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100vw;
+  height: 60px;
+  background-color: #29315a;
+  color: #ffffff;
+  p {
+    cursor: pointer;
+    &:hover {
+      color: #ffffff7c;
+    }
+  }
+}
+
+.profile__division {
+  width: 20%;
+  height: 228px;
+  background-color: #29315a;
+  border-radius: 0px 20px 20px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1%;
+  img {
+    width: 70px;
+    height: 70px;
+    filter: drop-shadow(0px 1px 32px rgba(234, 19, 19, 0.45));
+    border-radius: 100%;
+    object-fit: contain;
+    margin-bottom: 5%;
+  }
+  h3 {
+    font-weight: bold;
+    font-size: 17px;
+    color: #ffffff;
+    margin: 0;
+  }
+  p {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.57);
+    margin: 0;
+  }
+}
+
+.paper__container {
+  margin-left: 4%;
+  margin-top: 1%;
+  width: 70%;
+  height: 85vh;
+  background: #f0ece3;
+  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+
+  .heading__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    p:first-child {
+      font-size: 25px;
+      margin-left: 3%;
+    }
+    p:last-child {
+      font-size: 15px;
+      margin-right: 2%;
+    }
+  }
+}
+
+.content__container {
+  width: 94%;
+  height: 72vh;
+  overflow-y: scroll;
+  margin-left: 4%;
+  p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.arrow__container {
+  display: flex;
+  width: 102.46px;
+  height: 37px;
+  img {
+    width: 37px;
+    height: 37px;
+    object-fit: contain;
+  }
+}
+
+//................................................................//
+//................................................................//
+// MAX 480
+//................................................................//
+//................................................................//
+@media (max-width: 480px) {
+  .nav__container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+    height: 60px;
+    background-color: #29315a;
+    color: #ffffff;
+    p {
+      font-size: 12px;
+      cursor: pointer;
+      &:hover {
+        color: #ffffff7c;
+      }
+    }
+  }
+
+  .profile__division {
+    display: none;
+  }
+
+  .paper__container {
+    margin-left: 4%;
+    margin-top: 5%;
+    width: 92%;
+    height: 88vh;
+    background: #f0ece3;
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+
+    .heading__container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      p:first-child {
+        font-size: 25px;
+        margin-left: 3%;
+      }
+      p:last-child {
+        font-size: 15px;
+        margin-right: 2%;
+      }
+    }
+  }
+}
+
+//................................................................//
+//................................................................//
+// MAX 820
+//................................................................//
+//................................................................//
+@media (min-width: 480px) and (max-width: 820px) {
+  .nav__container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+    height: 60px;
+    background-color: #29315a;
+    color: #ffffff;
+    p {
+      font-size: 16px;
+      cursor: pointer;
+      &:hover {
+        color: #ffffff7c;
+      }
+    }
+  }
+
+  .profile__division {
+    display: none;
+  }
+
+  .paper__container {
+    margin-left: 4%;
+    margin-top: 5%;
+    width: 92%;
+    height: 88vh;
+    background: #f0ece3;
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+
+    .heading__container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      p:first-child {
+        font-size: 25px;
+        margin-left: 3%;
+      }
+      p:last-child {
+        font-size: 15px;
+        margin-right: 2%;
+      }
+    }
+  }
+}
