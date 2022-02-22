@@ -17,18 +17,6 @@ type BookOpenModalProps = {
 function BookOpenModal({ open, book, handleClose }: BookOpenModalProps) {
   const router = useRouter();
 
-  const bookStyle = {
-    position: "absolute" as "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    bgcolor: "background.paper",
-    border: "none",
-    boxShadow: 50,
-    borderRadius: 3,
-    p: 4,
-  };
-
   const currentBook = () => {
     const { name, slug, category, author, authorId, img } = book;
     const userInfo = Cookies.get("userInfo")
@@ -67,7 +55,7 @@ function BookOpenModal({ open, book, handleClose }: BookOpenModalProps) {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={bookStyle}>
+        <Box className={styles.box__container}>
           <div className={styles.modal__container}>
             <img src={book?.img} alt={book?.slug} />
             <div className={styles.modal__details}>
