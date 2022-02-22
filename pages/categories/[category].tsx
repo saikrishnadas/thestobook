@@ -59,7 +59,7 @@ function Category({ books }: HomeProps) {
 
 export default Category;
 
-export async function getServerSideProps({
+export async function getStaticProps({
   query,
 }: {
   query: { category: string };
@@ -73,5 +73,6 @@ export async function getServerSideProps({
     props: {
       books,
     },
+    revalidate: 3600,
   };
 }

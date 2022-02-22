@@ -15,7 +15,7 @@ function author({ author }: { author: AuthorProps }) {
 
 export default author;
 
-export async function getServerSideProps({ query }: { query: AuthorProps }) {
+export async function getStaticProps({ query }: { query: AuthorProps }) {
   const { slug } = query;
   await dbConnect();
 
@@ -25,5 +25,6 @@ export async function getServerSideProps({ query }: { query: AuthorProps }) {
     props: {
       author,
     },
+    revalidate: 3600,
   };
 }

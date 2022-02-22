@@ -16,7 +16,7 @@ function index({ authors, books }: HomeProps) {
 
 export default index;
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   await dbConnect();
 
   const resp_authors = await Author.find({});
@@ -29,5 +29,6 @@ export async function getServerSideProps() {
       authors,
       books,
     },
+    revalidate: 3600,
   };
 }

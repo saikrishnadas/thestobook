@@ -29,6 +29,7 @@ const Home: NextPage<HomeProps> = ({ books, authors }) => {
 
 export default Home;
 
+//Incremental Static Generation
 export async function getStaticProps() {
   await dbConnect();
 
@@ -42,6 +43,6 @@ export async function getStaticProps() {
       books,
       authors,
     },
-    revalidate: 300,
+    revalidate: 3600,
   };
 }
