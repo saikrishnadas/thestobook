@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import NavContainer from "../containers/NavContainer";
 import styles from "../styles/Search.module.scss";
 // import { books } from "../utils/data";
@@ -20,8 +20,6 @@ function Sbooks() {
   const [book, setBook] = useState<BookProps | null>(null);
   const [openSuggest, setOpenSuggest] = useState(false);
 
-  console.log("searchBooks:", searchBooks);
-
   const handleBookClick = (book: BookProps) => {
     console.log(book);
     setBook(book);
@@ -42,7 +40,10 @@ function Sbooks() {
     setOpenSuggest(false);
   };
 
-  const makeSuggest = (e: any, bookSuggestion: any) => {
+  const makeSuggest = (
+    e: React.FormEvent<HTMLFormElement>,
+    bookSuggestion: string
+  ) => {
     e.preventDefault();
     console.log("You made a suggestion ", bookSuggestion);
 
@@ -57,6 +58,10 @@ function Sbooks() {
 
     setOpenSuggest(false);
   };
+
+  useEffect(() => {
+    console.log(searchBooks);
+  }, []);
 
   return (
     <>
@@ -76,17 +81,14 @@ function Sbooks() {
             <p onClick={handleSuggestClick}> Suggest a book to add.</p>
           </span>
           <div className={styles.saved__book__container}>
-            {searchBooks?.map((book: any) => {
+            {searchBooks?.map((book: BookProps) => {
               return (
                 <div
                   className={styles.book__card}
                   key={book._id}
                   onClick={() => handleBookClick(book)}
                 >
-                  <div
-                    className={styles.book__layout}
-                    // style={{ backgroundColor: `${color[index]}` }}
-                  >
+                  <div className={styles.book__layout}>
                     <img src={book.img} alt={book.slug} />
                   </div>
 

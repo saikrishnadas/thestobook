@@ -27,10 +27,7 @@ function index({ authors }: HomeProps) {
                 key={author._id}
                 onClick={() => handleAuthorClick(author.slug)}
               >
-                <div
-                  className={styles.author__layout}
-                  // style={{ backgroundColor: myColor }}
-                >
+                <div className={styles.author__layout}>
                   <img src={author.img} alt={author.slug} />
                 </div>
 

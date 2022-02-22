@@ -5,7 +5,6 @@ import Author from "../../models/Author";
 import { AuthorProps } from "../../utils/typings";
 
 function author({ author }: { author: AuthorProps }) {
-  console.log(author);
   return (
     <div style={{ display: "flex" }}>
       <NavContainer />
@@ -16,7 +15,7 @@ function author({ author }: { author: AuthorProps }) {
 
 export default author;
 
-export async function getServerSideProps({ query }: any) {
+export async function getServerSideProps({ query }: { query: AuthorProps }) {
   const { slug } = query;
   await dbConnect();
 

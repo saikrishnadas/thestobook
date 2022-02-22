@@ -17,7 +17,6 @@ function Trending({ authors, books }: HomeProps) {
   //   console.log(savedSlug);
 
   const handleBookClick = (book: BookProps) => {
-    console.log(book);
     setBook(book);
     setOpen(true);
   };

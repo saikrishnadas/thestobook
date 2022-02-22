@@ -6,8 +6,9 @@ import styles from "../../styles/Author.module.scss";
 import { useRouter } from "next/router";
 import NavContainer from "../../containers/NavContainer";
 import { BookProps } from "../../utils/typings";
+import { HomeProps } from "../../utils/typings";
 
-function Category({ books }: any) {
+function Category({ books }: HomeProps) {
   const router = useRouter();
   const { category } = router.query;
   const [open, setOpen] = useState(false);
@@ -32,7 +33,7 @@ function Category({ books }: any) {
           <p>{category}</p>
         </div>
         <div className={styles.author__book__container}>
-          {books.map((book: BookProps) => {
+          {books?.map((book: BookProps) => {
             return (
               <div
                 className={styles.book__card}
@@ -58,7 +59,11 @@ function Category({ books }: any) {
 
 export default Category;
 
-export async function getServerSideProps({ query }: any) {
+export async function getServerSideProps({
+  query,
+}: {
+  query: { category: string };
+}) {
   const { category } = query;
   await dbConnect();
 

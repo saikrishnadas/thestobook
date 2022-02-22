@@ -22,7 +22,7 @@ function index() {
     router.push("/");
   };
 
-  useEffect((): any => {
+  useEffect(() => {
     if (!userInfo) {
       router.push("/login?redirect=/reading");
     }
@@ -129,10 +129,6 @@ function index() {
                 </p>
               </div>
             </div>
-            {/* <div className={styles.arrow__container}>
-            <img src={leftIcon.src} alt="" />
-            <img src={rightIcon.src} alt="" />
-          </div> */}
           </div>
         </div>
       )}

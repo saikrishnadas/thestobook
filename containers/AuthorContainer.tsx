@@ -7,14 +7,12 @@ import axios from "axios";
 import { BookProps, AuthorProps } from "../utils/typings";
 
 function AuthorContainer({ author }: { author: AuthorProps }) {
-  console.log("author", author);
   const router = useRouter();
   const [books, setBooks] = useState<BookProps[]>([]);
   const [open, setOpen] = useState(false);
   const [book, setBook] = useState<BookProps | null>(null);
 
   const authorSlug = router.query.slug;
-  console.log(authorSlug);
 
   const getBooksByAuthor = () => {
     axios
@@ -22,7 +20,6 @@ function AuthorContainer({ author }: { author: AuthorProps }) {
         authorId: author.authorId,
       })
       .then(function (response) {
-        console.log(response);
         setBooks(response.data);
       })
       .catch(function (error) {
@@ -31,7 +28,6 @@ function AuthorContainer({ author }: { author: AuthorProps }) {
   };
 
   const handleBookClick = (book: BookProps) => {
-    console.log(book);
     setBook(book);
     setOpen(true);
   };
@@ -61,10 +57,7 @@ function AuthorContainer({ author }: { author: AuthorProps }) {
                 key={book._id}
                 onClick={() => handleBookClick(book)}
               >
-                <div
-                  className={styles.book__layout}
-                  // style={{ backgroundColor: myColor }}
-                >
+                <div className={styles.book__layout}>
                   <img src={book.img} alt={book.slug} />
                 </div>
 
