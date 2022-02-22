@@ -19,8 +19,8 @@ function NavContainer() {
   const setCurrentBook = useSetRecoilState(currentAtom);
   const [menu, setMenu] = useState(false);
 
-  const getCurrentBook = () => {
-    axios
+  const getCurrentBook = async () => {
+    await axios
       .get("/api/books/currentBook")
       .then(function (response) {
         const found = response.data.filter(
@@ -43,9 +43,9 @@ function NavContainer() {
     setMenu(false);
   };
 
-  useEffect(() => {
-    getCurrentBook();
-  }, []);
+  // useEffect(() => {
+  getCurrentBook();
+  // }, []);
 
   return (
     <>
