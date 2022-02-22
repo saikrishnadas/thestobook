@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Profile from "../components/Profile";
 import MenuSelect from "../components/MenuSelect";
 import styles from "../styles/NavContainer.module.scss";
@@ -8,7 +8,6 @@ import { userAtom } from "../atoms/userAtom";
 import axios from "axios";
 import { useSetRecoilState } from "recoil";
 import { currentAtom } from "../atoms/currentAtom";
-import { useEffect } from "react";
 import Link from "next/link";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuMobile from "../components/MenuMobile";
@@ -43,9 +42,9 @@ function NavContainer() {
     setMenu(false);
   };
 
-  // useEffect(() => {
-  getCurrentBook();
-  // }, []);
+  useMemo(() => {
+    getCurrentBook();
+  }, []);
 
   return (
     <>
