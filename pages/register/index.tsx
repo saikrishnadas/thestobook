@@ -87,7 +87,7 @@ function Register() {
               setUserInfo(data);
               Cookies.set("userInfo", JSON.stringify(data));
               router.push(redirect || "/");
-            } catch (err) {
+            } catch (err: any) {
               alert(
                 err.response.data ? err.response.data.message : err.message
               );
