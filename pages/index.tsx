@@ -29,7 +29,7 @@ const Home: NextPage<HomeProps> = ({ books, authors }) => {
 
 export default Home;
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   await dbConnect();
 
   const resp_books = await Book.find({});
@@ -42,5 +42,6 @@ export async function getServerSideProps() {
       books,
       authors,
     },
+    revalidate: 300,
   };
 }
