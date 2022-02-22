@@ -7,7 +7,7 @@ import Book from "../models/Book";
 import { HomeProps } from "../utils/typings";
 import Author from "../models/Author";
 import styles from "../styles/Home.module.scss";
-import icon from "../public/book.ico";
+import icon from "/public/book.ico";
 
 const Home: NextPage<HomeProps> = ({ books, authors }) => {
   return (
