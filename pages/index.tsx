@@ -7,6 +7,7 @@ import Book from "../models/Book";
 import { HomeProps } from "../utils/typings";
 import Author from "../models/Author";
 import styles from "../styles/Home.module.scss";
+import icon from "../public/book.ico";
 
 const Home: NextPage<HomeProps> = ({ books, authors }) => {
   return (
@@ -17,7 +18,7 @@ const Home: NextPage<HomeProps> = ({ books, authors }) => {
           name="description"
           content="The Stobook is an open library where you can read any book for free. It features a customizable auto function that suggests depending on user preferences."
         />
-        <link rel="icon" href="/book.ico" />
+        <link rel="icon" href={icon.src} />
       </Head>
       <div className={styles.index__container}>
         <NavContainer />
