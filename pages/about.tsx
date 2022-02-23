@@ -54,7 +54,7 @@ function about() {
           <div className={styles.developer__details}>
             <img
               src="https://miro.medium.com/fit/c/1360/1360/1*prGxEhjvfMxpeagLYWxA4w.jpeg"
-              alt=""
+              alt="sai krishna das - developer image"
             />
             <div className={styles.developer__tags}>
               <p style={{ fontSize: "20px", marginTop: "0" }}>
@@ -64,14 +64,14 @@ function about() {
                 <Link href="https://github.com/saikrishnadas">
                   <img
                     src="./Github.jpg"
-                    alt=""
+                    alt="github icon"
                     style={{ width: "20px", height: "20px" }}
                   />
                 </Link>
                 <Link href="https://www.linkedin.com/in/sai-krishna-das/">
                   <img
                     src="./LinkedIN.jpg"
-                    alt=""
+                    alt="linkedin icon"
                     style={{ width: "20px", height: "20px" }}
                   />
                 </Link>
@@ -81,21 +81,21 @@ function about() {
                 >
                   <img
                     src="./Mail.jpg"
-                    alt=""
+                    alt="mail icon"
                     style={{ width: "20px", height: "20px" }}
                   />
                 </Tooltip>
                 <Link href="https://www.saikrishnadas.com/">
                   <img
                     src="./IE.jpg"
-                    alt=""
+                    alt="ie icon"
                     style={{ width: "20px", height: "20px" }}
                   />
                 </Link>
                 <Link href="https://www.saikrishnadas.com/">
                   <img
                     src="./Figma.jpg"
-                    alt=""
+                    alt="figma icon"
                     style={{ width: "20px", height: "20px" }}
                   />
                 </Link>

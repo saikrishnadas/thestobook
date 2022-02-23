@@ -46,7 +46,7 @@ function AuthorContainer({ author }: { author: AuthorProps }) {
       <BookOpenModal open={open} handleClose={handleClose} book={book!} />
       <div className={styles.author__page}>
         <div className={styles.author__tag}>
-          <img src={author.img} alt="" />
+          <img src={author.img} alt="author image" />
           <p>{author.name}</p>
         </div>
         <div className={styles.author__book__container}>
@@ -58,7 +58,7 @@ function AuthorContainer({ author }: { author: AuthorProps }) {
                 onClick={() => handleBookClick(book)}
               >
                 <div className={styles.book__layout}>
-                  <img src={book.img} alt={book.slug} />
+                  <img src={book.img} alt="book image" />
                 </div>
 
                 <p>{book.name}</p>

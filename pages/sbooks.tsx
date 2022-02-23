@@ -91,7 +91,7 @@ function Sbooks() {
                   onClick={() => handleBookClick(book)}
                 >
                   <div className={styles.book__layout}>
-                    <img src={book.img} alt={book.slug} />
+                    <img src={book.img} alt="book image" />
                   </div>
 
                   <p>{book.name}</p>

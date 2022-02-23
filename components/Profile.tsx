@@ -52,7 +52,7 @@ function Profile() {
         {user ? (
           <>
             <div>
-              <img src={nouser.src} alt="" />
+              <img src={nouser.src} alt="profile image" />
             </div>
             <div className={styles.profile__name}>
               <h4>{user.name}</h4>
@@ -81,7 +81,7 @@ function Profile() {
         ) : (
           <>
             <div>
-              <img src={nouser.src} alt="" />
+              <img src={nouser.src} alt="profile image" />
             </div>
             <div className={styles.profile__name}>
               <span style={{ display: "flex" }}>

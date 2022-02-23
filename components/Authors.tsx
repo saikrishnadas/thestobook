@@ -9,7 +9,7 @@ function Authors({ authors }: HomeProps) {
         return (
           <Link href={`author/${author.slug}`} key={author._id}>
             <div className={styles.author__card}>
-              <img src={author.img} alt={author.slug} />
+              <img src={author.img} alt="author image" />
               <p>{author.name}</p>
             </div>
           </Link>

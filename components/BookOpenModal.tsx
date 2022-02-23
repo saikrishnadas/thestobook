@@ -57,7 +57,7 @@ function BookOpenModal({ open, book, handleClose }: BookOpenModalProps) {
       >
         <Box className={styles.box__container}>
           <div className={styles.modal__container}>
-            <img src={book?.img} alt={book?.slug} />
+            <img src={book?.img} alt="book image" />
             <div className={styles.modal__details}>
               <span>{book?.name}</span>
               <span>{book?.author}</span>

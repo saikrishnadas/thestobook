@@ -31,7 +31,7 @@ function index({ authors }: HomeProps) {
                   onClick={() => handleAuthorClick(author.slug)}
                 >
                   <div className={styles.author__layout}>
-                    <img src={author.img} alt={author.slug} />
+                    <img src={author.img} alt="author image" />
                   </div>
 
                   <p>{author.name}</p>

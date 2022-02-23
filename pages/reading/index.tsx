@@ -64,7 +64,7 @@ function index() {
           </div>
           <div style={{ display: "flex" }}>
             <div className={styles.profile__division}>
-              <img src={nouser.src} alt="" />
+              <img src={nouser.src} alt="profile image" />
               <h3>{userInfo?.name}</h3>
               <p>Premium Member</p>
             </div>

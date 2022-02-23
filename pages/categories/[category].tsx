@@ -48,7 +48,7 @@ function Category({ books }: HomeProps) {
                     className={styles.book__layout}
                     // style={{ backgroundColor: myColor }}
                   >
-                    <img src={book.img} alt={book.slug} />
+                    <img src={book.img} alt="book image" />
                   </div>
 
                   <p>{book.name}</p>

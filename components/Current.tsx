@@ -12,7 +12,7 @@ function Current() {
       <h3>Current Reading Book</h3>
       <Link href="reading">
         <div className={styles.current__reading}>
-          <img src={currentBook?.img} alt="currentbook" />
+          <img src={currentBook?.img} alt="currentbook image" />
           <div>
             <p>{currentBook?.name}</p>
             <p>{currentBook?.author}</p>

@@ -19,7 +19,7 @@ function CategoryContainer() {
                 <img
                   style={{ marginTop: "45%" }}
                   src={adventureIcon.src}
-                  alt=""
+                  alt="adventure icon"
                 />
               </div>
               <p>Action and Adventure</p>
@@ -28,7 +28,7 @@ function CategoryContainer() {
           <Link href="categories/fantasy">
             <div className={styles.category__layout}>
               <div>
-                <img src={fantacyIcon.src} alt="" />
+                <img src={fantacyIcon.src} alt="fantasy icon" />
               </div>
               <p>Fantasy</p>
             </div>
@@ -36,7 +36,11 @@ function CategoryContainer() {
           <Link href="categories/crime">
             <div className={styles.category__layout}>
               <div>
-                <img style={{ marginTop: "55%" }} src={crimeIcon.src} alt="" />
+                <img
+                  style={{ marginTop: "55%" }}
+                  src={crimeIcon.src}
+                  alt="crime icon"
+                />
               </div>
               <p>Crime</p>
             </div>
@@ -44,7 +48,7 @@ function CategoryContainer() {
           <Link href="categories/romance">
             <div className={styles.category__layout}>
               <div>
-                <img src={romanceIcon.src} alt="" />
+                <img src={romanceIcon.src} alt="romance icon" />
               </div>
               <p>Romance</p>
             </div>
@@ -52,7 +56,7 @@ function CategoryContainer() {
           <Link href="categories/non-fiction">
             <div className={styles.category__layout}>
               <div>
-                <img src={thrillerIcon.src} alt="" />
+                <img src={thrillerIcon.src} alt="nonfiction icon" />
               </div>
               <p>Non-Fiction</p>
             </div>
@@ -60,7 +64,7 @@ function CategoryContainer() {
           <Link href="categories/science-fiction">
             <div className={styles.category__layout}>
               <div>
-                <img src={scienceFictionIcon.src} alt="" />
+                <img src={scienceFictionIcon.src} alt="sciencefiction icon" />
               </div>
               <p>Science Fiction</p>
             </div>

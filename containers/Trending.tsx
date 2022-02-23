@@ -51,7 +51,7 @@ function Trending({ authors, books }: HomeProps) {
                 onClick={() => handleBookClick(book)}
               >
                 <div className={classes.book__layout}>
-                  <img src={book.img} alt={book.slug} />
+                  <img src={book.img} alt="book image" />
                 </div>
 
                 <p>{book.name}</p>
