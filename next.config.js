@@ -3,10 +3,10 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     domains: [
-      "img.etimg.com",
-      "assets.vogue.com",
+      "thestobookimages.s3.ap-south-1.amazonaws.com",
+      "images-na.ssl-images-amazon.com",
+      "i.gr-assets.com",
       "m.media-amazon.com",
-      "upload.wikimedia.org",
     ],
   },
 };

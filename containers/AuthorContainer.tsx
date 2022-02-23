@@ -5,6 +5,7 @@ import styles from "../styles/Author.module.scss";
 import BookOpenModal from "../components/BookOpenModal";
 import axios from "axios";
 import { BookProps, AuthorProps } from "../utils/typings";
+import Image from "next/image";
 
 function AuthorContainer({ author }: { author: AuthorProps }) {
   const router = useRouter();
@@ -46,7 +47,16 @@ function AuthorContainer({ author }: { author: AuthorProps }) {
       <BookOpenModal open={open} handleClose={handleClose} book={book!} />
       <div className={styles.author__page}>
         <div className={styles.author__tag}>
-          <img src={author.img} alt="author image" />
+          <div className={styles.author__image}>
+            <Image
+              className={styles.author__image}
+              src={author.img}
+              alt="author image"
+              width={80}
+              height={80}
+              objectFit="cover"
+            />
+          </div>
           <p>{author.name}</p>
         </div>
         <div className={styles.author__book__container}>
@@ -58,7 +68,13 @@ function AuthorContainer({ author }: { author: AuthorProps }) {
                 onClick={() => handleBookClick(book)}
               >
                 <div className={styles.book__layout}>
-                  <img src={book.img} alt="book image" />
+                  <Image
+                    src={book.img}
+                    alt="book image"
+                    width={80}
+                    height={114}
+                    objectFit="contain"
+                  />
                 </div>
 
                 <p>{book.name}</p>

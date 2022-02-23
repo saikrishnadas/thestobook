@@ -5,6 +5,7 @@ import NavContainer from "../../containers/NavContainer";
 import { useRouter } from "next/router";
 import { HomeProps, AuthorProps } from "../../utils/typings";
 import HeadTag from "../../components/HeadTag";
+import Image from "next/image";
 
 function index({ authors }: HomeProps) {
   const router = useRouter();
@@ -31,7 +32,15 @@ function index({ authors }: HomeProps) {
                   onClick={() => handleAuthorClick(author.slug)}
                 >
                   <div className={styles.author__layout}>
-                    <img src={author.img} alt="author image" />
+                    <div className={styles.author__image}>
+                      <Image
+                        src={author.img}
+                        alt="author image"
+                        width={104}
+                        height={140}
+                        objectFit="cover"
+                      />
+                    </div>
                   </div>
 
                   <p>{author.name}</p>

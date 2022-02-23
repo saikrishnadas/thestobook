@@ -3,6 +3,7 @@ import styles from "../styles/MainContainer.module.scss";
 import BookOpenModal from "./BookOpenModal";
 import { BookProps } from "../utils/typings";
 import ProgressBar from "./ProgressBar";
+import Image from "next/image";
 
 type BooksContainerProps = {
   title: string;
@@ -62,7 +63,13 @@ function BooksContainer({ title, books }: BooksContainerProps) {
                 onClick={() => handleBookClick(book)}
               >
                 <div className={styles.book__layout}>
-                  <img src={book.img} alt="book image" />
+                  <Image
+                    src={book.img}
+                    alt="book image"
+                    width={77}
+                    height={118}
+                    objectFit="cover"
+                  />
                 </div>
                 <p>{book.name}</p>
               </div>

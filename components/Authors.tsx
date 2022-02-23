@@ -1,6 +1,7 @@
 import styles from "../styles/MainContainer.module.scss";
 import Link from "next/link";
 import { HomeProps } from "../utils/typings";
+import Image from "next/image";
 
 function Authors({ authors }: HomeProps) {
   return (
@@ -9,7 +10,14 @@ function Authors({ authors }: HomeProps) {
         return (
           <Link href={`author/${author.slug}`} key={author._id}>
             <div className={styles.author__card}>
-              <img src={author.img} alt="author image" />
+              <div className={styles.author__image}>
+                <Image
+                  src={author.img}
+                  alt="author image"
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </div>
               <p>{author.name}</p>
             </div>
           </Link>

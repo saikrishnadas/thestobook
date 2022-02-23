@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import BookOpenModal from "../components/BookOpenModal";
 import Link from "next/link";
 import { BookProps, HomeProps } from "../utils/typings";
+import Image from "next/image";
 
 function Trending({ authors, books }: HomeProps) {
   const [open, setOpen] = useState(false);
@@ -51,7 +52,13 @@ function Trending({ authors, books }: HomeProps) {
                 onClick={() => handleBookClick(book)}
               >
                 <div className={classes.book__layout}>
-                  <img src={book.img} alt="book image" />
+                  <Image
+                    src={book.img}
+                    alt="book image"
+                    width={80}
+                    height={114}
+                    objectFit="contain"
+                  />
                 </div>
 
                 <p>{book.name}</p>

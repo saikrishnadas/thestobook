@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import LogoutModal from "./LogoutModal";
 import AdminModal from "./AdminModal";
+import Image from "next/image";
 
 //@ts-ignore
 import Cookies from "js-cookie";
@@ -51,8 +52,13 @@ function Profile() {
       <div className={styles.profile}>
         {user ? (
           <>
-            <div>
-              <img src={nouser.src} alt="profile image" />
+            <div className={styles.profile__image}>
+              <Image
+                src={nouser.src}
+                alt="profile image"
+                layout="fill"
+                objectFit="cover"
+              />
             </div>
             <div className={styles.profile__name}>
               <h4>{user.name}</h4>
@@ -80,8 +86,13 @@ function Profile() {
           </>
         ) : (
           <>
-            <div>
-              <img src={nouser.src} alt="profile image" />
+            <div className={styles.profile__image}>
+              <Image
+                src={nouser.src}
+                alt="profile image"
+                layout="fill"
+                objectFit="cover"
+              />
             </div>
             <div className={styles.profile__name}>
               <span style={{ display: "flex" }}>

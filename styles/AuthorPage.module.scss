@@ -48,6 +48,13 @@
     font-size: 14px;
     text-align: center;
   }
+  .author__image {
+    border-radius: 10px;
+    object-fit: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 //................................................................//
@@ -105,6 +112,15 @@
     p {
       font-size: 14px;
       text-align: center;
+    }
+    .author__image {
+      width: 94px;
+      height: 130px;
+      border-radius: 10px;
+      object-fit: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 }
@@ -165,6 +181,15 @@
     p {
       font-size: 17px;
       text-align: center;
+    }
+    .author__image {
+      width: 124px;
+      height: 160px;
+      border-radius: 10px;
+      object-fit: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 }
