@@ -4,13 +4,17 @@ import dbConnect from "../../utils/mongo";
 import Author from "../../models/Author";
 import Book from "../../models/Book";
 import { HomeProps } from "../../utils/typings";
+import HeadTag from "../../components/HeadTag";
 
 function index({ authors, books }: HomeProps) {
   return (
-    <div style={{ display: "flex" }}>
-      <NavContainer />
-      <Trending authors={authors} books={books} />
-    </div>
+    <>
+      <HeadTag title="Trending" />
+      <div style={{ display: "flex" }}>
+        <NavContainer />
+        <Trending authors={authors} books={books} />
+      </div>
+    </>
   );
 }
 

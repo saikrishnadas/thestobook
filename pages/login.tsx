@@ -9,6 +9,7 @@ import Link from "next/link";
 import axios from "axios";
 import { useRecoilState } from "recoil";
 import { userAtom } from "../atoms/userAtom";
+import HeadTag from "../components/HeadTag";
 
 // @ts-ignore
 import Cookies from "js-cookie";
@@ -51,66 +52,69 @@ function Login() {
   }, []);
 
   return (
-    <div className={styles.login__page}>
-      <div className={styles.login__container}>
-        <h2>Welcome Back</h2>
-        <p className={styles.login__text}>
-          Enter your crendentials to access a book
-        </p>
+    <>
+      <HeadTag title="Login" />
+      <div className={styles.login__page}>
+        <div className={styles.login__container}>
+          <h2>Welcome Back</h2>
+          <p className={styles.login__text}>
+            Enter your crendentials to access a book
+          </p>
 
-        <Formik
-          initialValues={{ email: "", password: "" }}
-          validationSchema={validationSchema}
-          onSubmit={async (formData) => {
-            const email = formData.email;
-            const password = formData.password;
-            try {
-              const { data } = await axios.post("/api/user/login", {
-                email,
-                password,
-              });
-              setUserInfo(data);
-              Cookies.set("userInfo", JSON.stringify(data));
-              router.push(redirect || "/");
-            } catch (err: any) {
-              alert(
-                err.response.data ? err.response.data.message : err.message
-              );
-            }
-          }}
-        >
-          {({ values }) => (
-            <Form className={styles.login__form}>
-              <InputField
-                placeholder="Enter the email"
-                value={values.email}
-                name="email"
-                type="email"
-              />
-              <InputField
-                placeholder="Enter the password"
-                value={values.password}
-                name="password"
-                type="password"
-              />
-              <Button
-                variant="contained"
-                type="submit"
-                className={styles.login__button}
-              >
-                Submit
-              </Button>
-            </Form>
-          )}
-        </Formik>
+          <Formik
+            initialValues={{ email: "", password: "" }}
+            validationSchema={validationSchema}
+            onSubmit={async (formData) => {
+              const email = formData.email;
+              const password = formData.password;
+              try {
+                const { data } = await axios.post("/api/user/login", {
+                  email,
+                  password,
+                });
+                setUserInfo(data);
+                Cookies.set("userInfo", JSON.stringify(data));
+                router.push(redirect || "/");
+              } catch (err: any) {
+                alert(
+                  err.response.data ? err.response.data.message : err.message
+                );
+              }
+            }}
+          >
+            {({ values }) => (
+              <Form className={styles.login__form}>
+                <InputField
+                  placeholder="Enter the email"
+                  value={values.email}
+                  name="email"
+                  type="email"
+                />
+                <InputField
+                  placeholder="Enter the password"
+                  value={values.password}
+                  name="password"
+                  type="password"
+                />
+                <Button
+                  variant="contained"
+                  type="submit"
+                  className={styles.login__button}
+                >
+                  Submit
+                </Button>
+              </Form>
+            )}
+          </Formik>
+        </div>
+        <span className={styles.login__message}>
+          <p>Don't have an account?</p>{" "}
+          <Link href={`/register?redirect=${redirect || "/"}`}>
+            <p>Register</p>
+          </Link>
+        </span>
       </div>
-      <span className={styles.login__message}>
-        <p>Don't have an account?</p>{" "}
-        <Link href={`/register?redirect=${redirect || "/"}`}>
-          <p>Register</p>
-        </Link>
-      </span>
-    </div>
+    </>
   );
 }
 

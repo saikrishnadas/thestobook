@@ -13,6 +13,7 @@ import { useRecoilValue } from "recoil";
 import { searchAtom } from "../atoms/searchedBooks";
 import TopMain from "../components/TopMain";
 import SuggestModal from "../components/SuggestModal";
+import HeadTag from "../components/HeadTag";
 
 function Sbooks() {
   const searchBooks = useRecoilValue(searchAtom);
@@ -65,6 +66,7 @@ function Sbooks() {
 
   return (
     <>
+      <HeadTag title="The Stobook" />
       <SuggestModal
         openSuggest={openSuggest}
         handleSuggestClose={handleSuggestClose}

@@ -1,5 +1,4 @@
 import type { NextPage } from "next";
-import Head from "next/head";
 import NavContainer from "../containers/NavContainer";
 import MainContainer from "../containers/MainContainer";
 import dbConnect from "../utils/mongo";
@@ -7,18 +6,12 @@ import Book from "../models/Book";
 import { HomeProps } from "../utils/typings";
 import Author from "../models/Author";
 import styles from "../styles/Home.module.scss";
+import HeadTag from "../components/HeadTag";
 
 const Home: NextPage<HomeProps> = ({ books, authors }) => {
   return (
     <div>
-      <Head>
-        <title>The Stobook</title>
-        <meta
-          name="description"
-          content="The Stobook is an open library where you can read any book for free. It features a customizable auto function that suggests depending on user preferences."
-        />
-        <link rel="icon" type="image/x-icon" href="/book.ico" />
-      </Head>
+      <HeadTag title="The Stobook" />
       <div className={styles.index__container}>
         <NavContainer />
         <MainContainer books={books} authors={authors} />

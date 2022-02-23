@@ -3,13 +3,17 @@ import AuthorContainer from "../../containers/AuthorContainer";
 import dbConnect from "../../utils/mongo";
 import Author from "../../models/Author";
 import { AuthorProps } from "../../utils/typings";
+import HeadTag from "../../components/HeadTag";
 
 function author({ author }: { author: AuthorProps }) {
   return (
-    <div style={{ display: "flex" }}>
-      <NavContainer />
-      <AuthorContainer author={author} />
-    </div>
+    <>
+      <HeadTag title="Author" />
+      <div style={{ display: "flex" }}>
+        <NavContainer />
+        <AuthorContainer author={author} />
+      </div>
+    </>
   );
 }
 

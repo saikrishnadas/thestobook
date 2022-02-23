@@ -7,10 +7,12 @@ import { useRouter } from "next/router";
 import NavContainer from "../../containers/NavContainer";
 import { BookProps } from "../../utils/typings";
 import { HomeProps } from "../../utils/typings";
+import HeadTag from "../../components/HeadTag";
 
 function Category({ books }: HomeProps) {
   const router = useRouter();
   const { category } = router.query;
+  const title = String(category);
   const [open, setOpen] = useState(false);
   const [book, setBook] = useState<BookProps | null>(null);
 
@@ -25,35 +27,38 @@ function Category({ books }: HomeProps) {
     setBook(null);
   };
   return (
-    <div style={{ display: "flex" }}>
-      <NavContainer />
-      <BookOpenModal open={open} handleClose={handleClose} book={book!} />
-      <div className={styles.author__page}>
-        <div className={styles.author__tag}>
-          <p>{category}</p>
-        </div>
-        <div className={styles.author__book__container}>
-          {books?.map((book: BookProps) => {
-            return (
-              <div
-                className={styles.book__card}
-                key={book._id}
-                onClick={() => handleBookClick(book)}
-              >
+    <>
+      <HeadTag title={title} />
+      <div style={{ display: "flex" }}>
+        <NavContainer />
+        <BookOpenModal open={open} handleClose={handleClose} book={book!} />
+        <div className={styles.author__page}>
+          <div className={styles.author__tag}>
+            <p>{category}</p>
+          </div>
+          <div className={styles.author__book__container}>
+            {books?.map((book: BookProps) => {
+              return (
                 <div
-                  className={styles.book__layout}
-                  // style={{ backgroundColor: myColor }}
+                  className={styles.book__card}
+                  key={book._id}
+                  onClick={() => handleBookClick(book)}
                 >
-                  <img src={book.img} alt={book.slug} />
-                </div>
+                  <div
+                    className={styles.book__layout}
+                    // style={{ backgroundColor: myColor }}
+                  >
+                    <img src={book.img} alt={book.slug} />
+                  </div>
 
-                <p>{book.name}</p>
-              </div>
-            );
-          })}
+                  <p>{book.name}</p>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

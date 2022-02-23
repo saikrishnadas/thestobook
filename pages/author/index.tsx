@@ -4,6 +4,7 @@ import Author from "../../models/Author";
 import NavContainer from "../../containers/NavContainer";
 import { useRouter } from "next/router";
 import { HomeProps, AuthorProps } from "../../utils/typings";
+import HeadTag from "../../components/HeadTag";
 
 function index({ authors }: HomeProps) {
   const router = useRouter();
@@ -13,31 +14,34 @@ function index({ authors }: HomeProps) {
   };
 
   return (
-    <div style={{ display: "flex" }}>
-      <NavContainer />
-      <div style={{ height: "100vh", width: "65%" }}>
-        <div className={styles.author__tag}>
-          <p>Authors</p>
-        </div>
-        <div className={styles.author__container}>
-          {authors?.map((author: AuthorProps) => {
-            return (
-              <div
-                className={styles.author__card}
-                key={author._id}
-                onClick={() => handleAuthorClick(author.slug)}
-              >
-                <div className={styles.author__layout}>
-                  <img src={author.img} alt={author.slug} />
-                </div>
+    <>
+      <HeadTag title="Authors" />
+      <div style={{ display: "flex" }}>
+        <NavContainer />
+        <div style={{ height: "100vh", width: "65%" }}>
+          <div className={styles.author__tag}>
+            <p>Authors</p>
+          </div>
+          <div className={styles.author__container}>
+            {authors?.map((author: AuthorProps) => {
+              return (
+                <div
+                  className={styles.author__card}
+                  key={author._id}
+                  onClick={() => handleAuthorClick(author.slug)}
+                >
+                  <div className={styles.author__layout}>
+                    <img src={author.img} alt={author.slug} />
+                  </div>
 
-                <p>{author.name}</p>
-              </div>
-            );
-          })}
+                  <p>{author.name}</p>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

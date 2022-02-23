@@ -9,6 +9,7 @@ import { userAtom } from "../../atoms/userAtom";
 import CircularProgress from "@mui/material/CircularProgress";
 import Link from "next/link";
 import nouser from "../../public/nouser.png";
+import HeadTag from "../../components/HeadTag";
 
 //@ts-ignore
 import Cookies from "js-cookie";
@@ -30,6 +31,7 @@ function index() {
 
   return (
     <>
+      <HeadTag title="The Stobook" />
       {!userInfo ? (
         <div
           style={{

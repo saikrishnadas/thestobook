@@ -1,4 +1,4 @@
-import { useState, useEffect, useLayoutEffect } from "react";
+import { useState, useEffect } from "react";
 import Profile from "../components/Profile";
 import MenuSelect from "../components/MenuSelect";
 import styles from "../styles/NavContainer.module.scss";
@@ -18,8 +18,8 @@ function NavContainer() {
   const setCurrentBook = useSetRecoilState(currentAtom);
   const [menu, setMenu] = useState(false);
 
-  const getCurrentBook = async () => {
-    await axios
+  const getCurrentBook = () => {
+    axios
       .get("/api/books/currentBook")
       .then(function (response) {
         const found = response.data.filter(
@@ -42,7 +42,7 @@ function NavContainer() {
     setMenu(false);
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     getCurrentBook();
   }, []);
 
