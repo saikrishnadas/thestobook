@@ -34,6 +34,10 @@
     font-weight: bold;
     font-size: 14px;
   }
+  .textField {
+    width: 30vw;
+    margin-bottom: 10px;
+  }
 }
 
 .register__form {
@@ -59,11 +63,6 @@
     text-decoration: underline;
     cursor: pointer;
   }
-}
-
-.textField {
-  width: 30vw;
-  margin-bottom: 10px;
 }
 
 //................................................................//
@@ -107,6 +106,10 @@
       font-weight: bold;
       font-size: 14px;
     }
+    .textField {
+      width: 100vw;
+      margin-bottom: 10px;
+    }
   }
 
   .register__form {
@@ -132,10 +135,5 @@
       text-decoration: underline;
       cursor: pointer;
     }
-  }
-
-  .textField {
-    width: 100vw;
-    margin-bottom: 10px;
   }
 }
