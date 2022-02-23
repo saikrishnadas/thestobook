@@ -17,7 +17,7 @@ const Home: NextPage<HomeProps> = ({ books, authors }) => {
           name="description"
           content="The Stobook is an open library where you can read any book for free. It features a customizable auto function that suggests depending on user preferences."
         />
-        <link rel="icon" href="/book.ico" />
+        <link rel="icon" type="image/x-icon" href="/book.ico" />
       </Head>
       <div className={styles.index__container}>
         <NavContainer />
