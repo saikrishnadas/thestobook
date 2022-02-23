@@ -7,26 +7,31 @@ import axios from "axios";
 import { BookProps, AuthorProps } from "../utils/typings";
 import Image from "next/image";
 
-function AuthorContainer({ author }: { author: AuthorProps }) {
+type AuthorContainerProps = {
+  author: AuthorProps;
+  books: BookProps[];
+};
+
+function AuthorContainer({ author, books }: AuthorContainerProps) {
   const router = useRouter();
-  const [books, setBooks] = useState<BookProps[]>([]);
+  // const [books, setBooks] = useState<BookProps[]>([]);
   const [open, setOpen] = useState(false);
   const [book, setBook] = useState<BookProps | null>(null);
 
   const authorSlug = router.query.slug;
 
-  const getBooksByAuthor = () => {
-    axios
-      .post("/api/books/getByAuthor", {
-        authorId: author.authorId,
-      })
-      .then(function (response) {
-        setBooks(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  };
+  // const getBooksByAuthor = () => {
+  //   axios
+  //     .post("/api/books/getByAuthor", {
+  //       authorId: author.authorId,
+  //     })
+  //     .then(function (response) {
+  //       setBooks(response.data);
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     });
+  // };
 
   const handleBookClick = (book: any) => {
     setBook(book);
@@ -38,9 +43,9 @@ function AuthorContainer({ author }: { author: AuthorProps }) {
     setBook(null);
   };
 
-  useEffect(() => {
-    getBooksByAuthor();
-  }, []);
+  // useEffect(() => {
+  //   getBooksByAuthor();
+  // }, []);
 
   return (
     <>
