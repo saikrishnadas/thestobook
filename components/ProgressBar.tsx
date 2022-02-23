@@ -13,6 +13,7 @@ function ProgressBar({ onClickScroll, handleProgress }: ProgressBarProps) {
     <span style={{ display: "flex", alignItems: "center" }}>
       <img
         src={leftarrow.src}
+        alt="left arrow icon"
         style={{ cursor: "pointer", opacity: "0.8" }}
         onClick={() => {
           onClickScroll(-100);
@@ -21,6 +22,7 @@ function ProgressBar({ onClickScroll, handleProgress }: ProgressBarProps) {
       />
       <img
         src={rightarrow.src}
+        alt="right arrow icon"
         style={{ cursor: "pointer" }}
         onClick={() => {
           onClickScroll(100);
