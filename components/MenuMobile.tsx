@@ -10,6 +10,7 @@ import { currentAtom } from "../atoms/currentAtom";
 import axios from "axios";
 import MenuSelect from "./MenuSelect";
 import { BookProps } from "../utils/typings";
+import CancelIcon from "@mui/icons-material/Cancel";
 
 //@ts-ignore
 import Cookies from "js-cookie";
@@ -51,11 +52,11 @@ function MenuMobile({ handleMenuClose }: MenuMobileProps) {
     >
       <>
         <Link href="/about">
-          <p className={styles.about__us}>About The Stobook</p>
+          <div className={styles.about__us}>About The Stobook</div>
         </Link>
-        <p className={styles.close} onClick={handleMenuClose}>
-          Close
-        </p>
+        <div className={styles.close} onClick={handleMenuClose}>
+          <CancelIcon className={styles.close__icon} />
+        </div>
         <Profile />
         <MenuSelect />
         {userInfo && <Current />}

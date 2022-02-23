@@ -75,8 +75,8 @@
   }
   .author__tag {
     display: flex;
-    margin-left: 0px;
-    margin-top: 30px;
+    margin-left: 6%;
+    margin-top: 50px;
     align-items: center;
     img {
       width: 80px;
@@ -101,7 +101,7 @@
     align-items: baseline;
     height: 80vh;
     overflow-y: scroll;
-    grid-gap: 10px 0px;
+    grid-gap: 0px 0px;
     margin-left: 0px;
     &::-webkit-scrollbar {
       display: none;
@@ -118,21 +118,21 @@
     width: 160px;
     height: 260px;
     .book__layout {
-      width: 121.03px;
-      height: 157px;
+      width: 91.03px;
+      height: 127px;
       background: rgba(41, 49, 90, 0.58);
       border-radius: 10px;
       display: flex;
       justify-content: center;
       align-items: center;
       img {
-        width: 100px;
-        height: 134px;
+        width: 67px;
+        height: 108px;
         object-fit: contain;
       }
     }
     p {
-      font-size: 12px;
+      font-size: 9.5px;
       text-align: center;
     }
   }

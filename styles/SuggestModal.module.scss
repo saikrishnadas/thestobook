@@ -32,3 +32,36 @@
     }
   }
 }
+
+.box__container {
+  position: absolute;
+  top: 50%;
+  left: 55%;
+  width: 380px;
+  height: 250px;
+  transform: translate(-50%, -50%);
+  border: none;
+  background-color: white;
+  border-radius: 10px;
+  padding: 4%;
+}
+
+//................................................................//
+//................................................................//
+// MAX 480
+//................................................................//
+//................................................................//
+@media (max-width: 480px) {
+  .box__container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 350px;
+    height: 210px;
+    transform: translate(-50%, -50%);
+    border: none;
+    background-color: white;
+    border-radius: 10px;
+    padding: 4%;
+  }
+}

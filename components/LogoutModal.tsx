@@ -33,7 +33,7 @@ function LogoutModal({
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={logoutModalStyle}>
+        <Box className={styles.box__container}>
           <div className={styles.modal__container}>
             <div className={styles.modal__details}>
               <p>Are you sure you want to logout ?</p>

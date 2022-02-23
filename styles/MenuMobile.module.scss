@@ -31,9 +31,9 @@
   .about__us {
     position: absolute;
     top: 0;
+    left: 0;
     text-align: start;
     margin: 0%;
-    width: 100%;
     font-size: 8px;
     padding: 14px;
     cursor: pointer;
@@ -45,15 +45,20 @@
   .close {
     position: absolute;
     top: 0;
+    right: 0;
     text-align: end;
     margin: 0%;
-    width: 100%;
     font-size: 8px;
     padding: 14px;
     cursor: pointer;
     &:hover {
       color: #ffffff70;
     }
+  }
+
+  .close__icon {
+    width: 20px;
+    height: 20px;
   }
 }
 
@@ -78,7 +83,7 @@
 
   .menu__container__nouser {
     width: 50%;
-    height: fit-content;
+    height: 100vh;
     background-color: $primaryBackground;
     position: absolute;
     z-index: 10;
@@ -88,9 +93,9 @@
   .about__us {
     position: absolute;
     top: 0;
+    left: 0;
     text-align: start;
     margin: 0%;
-    width: 100%;
     font-size: 14px;
     padding: 14px;
     cursor: pointer;
@@ -102,9 +107,9 @@
   .close {
     position: absolute;
     top: 0;
+    right: 0;
     text-align: end;
     margin: 0%;
-    width: 100%;
     font-size: 14px;
     padding: 14px;
     cursor: pointer;

@@ -37,7 +37,7 @@ function SuggestModal({
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={bookStyle}>
+        <Box className={styles.box__container}>
           <div className={styles.modal__container}>
             <div className={styles.modal__details}>
               <p>Enter the suggestion : </p>
