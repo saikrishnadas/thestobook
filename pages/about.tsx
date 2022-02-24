@@ -9,11 +9,18 @@ function about() {
       <HeadTag title="About" />
       <div className={styles.about_page}>
         <div className={styles.navbar}>
-          <p>Home</p>
-          <p>Categories</p>
-          <p>Saved</p>
-          <p>Trending</p>
-          <p>Authors</p>
+          <Link href="/">
+            <p>Home</p>
+          </Link>
+          <Link href="/categories">
+            <p>Categories</p>
+          </Link>
+          <Link href="/trending">
+            <p>Trending</p>
+          </Link>
+          <Link href="/author">
+            <p>Authors</p>
+          </Link>
         </div>
         <div className={styles.about}>
           <p>About</p>
