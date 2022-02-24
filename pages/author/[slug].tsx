@@ -54,6 +54,6 @@ export async function getStaticProps({ params }: { params: AuthorProps }) {
       author,
       books,
     },
-    revalidate: 3600,
+    revalidate: 300,
   };
 }
