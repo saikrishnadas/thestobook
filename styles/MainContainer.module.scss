@@ -135,10 +135,11 @@
   }
 
   .author__container {
+    width: 100%;
     height: 10.75em;
-    justify-content: center;
+    // justify-content: center;
     .author__card {
-      margin-left: 2%;
+      margin-left: 6%;
       img {
         width: 4.5em;
         height: 4.5em;

@@ -101,7 +101,7 @@
   .author__book__container {
     margin-top: 5%;
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto auto auto;
     justify-content: center;
     align-content: flex-start;
     align-items: baseline;
@@ -119,10 +119,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-left: 0%;
+    margin-left: 10%;
     cursor: pointer;
-    width: 160px;
-    height: 260px;
+    width: 110px;
+    height: 210px;
     .book__layout {
       width: 91.03px;
       height: 127px;

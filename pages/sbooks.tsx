@@ -14,6 +14,7 @@ import { searchAtom } from "../atoms/searchedBooks";
 import TopMain from "../components/TopMain";
 import SuggestModal from "../components/SuggestModal";
 import HeadTag from "../components/HeadTag";
+import Image from "next/image";
 
 function Sbooks() {
   const searchBooks = useRecoilValue(searchAtom);
@@ -91,7 +92,13 @@ function Sbooks() {
                   onClick={() => handleBookClick(book)}
                 >
                   <div className={styles.book__layout}>
-                    <img src={book.img} alt="book image" />
+                    <Image
+                      src={book.img}
+                      alt="book image"
+                      width={77}
+                      height={118}
+                      objectFit="cover"
+                    />
                   </div>
 
                   <p>{book.name}</p>
