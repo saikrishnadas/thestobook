@@ -1,8 +1,5 @@
 import { useEffect } from "react";
 import styles from "../../styles/Reading.module.scss";
-import rightIcon from "../../public/Group 5.png";
-import leftIcon from "../../public/Group 6.png";
-// import HomeIcon from "@mui/icons-material/Home";
 import { useRouter } from "next/router";
 import { useRecoilState } from "recoil";
 import { userAtom } from "../../atoms/userAtom";

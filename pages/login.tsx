@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import { Formik, Form, Field, FieldAttributes, useField } from "formik";
+import { Formik, Form, FieldAttributes, useField } from "formik";
 import * as yup from "yup";
 import styles from "../styles/LoginPage.module.scss";
 import Link from "next/link";

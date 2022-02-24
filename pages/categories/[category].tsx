@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Book from "../../models/Book";
 import dbConnect from "../../utils/mongo";
 import BookOpenModal from "../../components/BookOpenModal";

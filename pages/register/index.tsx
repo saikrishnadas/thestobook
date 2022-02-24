@@ -95,7 +95,6 @@ function Register() {
                   err.response.data ? err.response.data.message : err.message
                 );
               }
-              // console.log(formData);
             }}
           >
             {({ values }) => (

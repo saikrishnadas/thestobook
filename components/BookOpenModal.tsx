@@ -2,7 +2,6 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import styles from "../styles/BookOpenModal.module.scss";
 import { useRouter } from "next/router";
-import { BookProps } from "../utils/typings";
 import axios from "axios";
 
 // @ts-ignore

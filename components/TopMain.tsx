@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import TextField from "@mui/material/TextField";
 import styles from "../styles/MainContainer.module.scss";
 import SearchIcon from "@mui/icons-material/Search";
 import axios from "axios";

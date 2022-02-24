@@ -18,17 +18,7 @@ function SuggestModal({
   makeSuggest,
 }: SuggestModalProps) {
   const [bookSuggestion, setBookSuggestion] = useState("");
-  const bookStyle = {
-    position: "absolute" as "absolute",
-    top: "50%",
-    left: "55%",
-    transform: "translate(-50%, -50%)",
-    bgcolor: "background.paper",
-    border: "none",
-    boxShadow: 50,
-    borderRadius: 3,
-    p: 4,
-  };
+
   return (
     <>
       <Modal

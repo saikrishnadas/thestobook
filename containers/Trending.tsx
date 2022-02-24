@@ -2,8 +2,6 @@ import Authors from "../components/Authors";
 import styles from "../styles/MainContainer.module.scss";
 import classes from "../styles/Trending.module.scss";
 import { useState } from "react";
-import { useRouter } from "next/router";
-// import { books } from "../utils/data";
 import BookOpenModal from "../components/BookOpenModal";
 import Link from "next/link";
 import { BookProps, HomeProps } from "../utils/typings";

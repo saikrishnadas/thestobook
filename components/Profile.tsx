@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import { userAtom } from "../atoms/userAtom";
 import styles from "../styles/NavContainer.module.scss";
 import nouser from "../public/nouser.png";
@@ -14,7 +14,7 @@ import Cookies from "js-cookie";
 
 function Profile() {
   const router = useRouter();
-  const [userInfo, setUserInfo] = useRecoilState(userAtom);
+  const setUserInfo = useSetRecoilState(userAtom);
   const [logoutModal, setLogoutModal] = useState(false);
   const [adminModal, setAdminModal] = useState(false);
 

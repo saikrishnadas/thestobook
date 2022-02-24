@@ -1,13 +1,8 @@
 import { useState, useEffect } from "react";
 import NavContainer from "../containers/NavContainer";
 import styles from "../styles/Search.module.scss";
-// import { books } from "../utils/data";
 import BookOpenModal from "../components/BookOpenModal";
-// import { BookType } from "../containers/AuthorContainer";
-import { HomeProps } from "../utils/typings";
 import { BookProps } from "../utils/typings";
-import dbConnect from "../utils/mongo";
-import Book from "../models/Book";
 import axios from "axios";
 import { useRecoilValue } from "recoil";
 import { searchAtom } from "../atoms/searchedBooks";

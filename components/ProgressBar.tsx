@@ -1,7 +1,5 @@
 import rightarrow from "../public/rightarrow.svg";
 import leftarrow from "../public/leftarrow.svg";
-// import Box from "@mui/material/Box";
-// import LinearProgress from "@mui/material/LinearProgress";
 
 type ProgressBarProps = {
   onClickScroll: (scrollOffset: number) => void;
@@ -29,9 +27,6 @@ function ProgressBar({ onClickScroll, handleProgress }: ProgressBarProps) {
           handleProgress("plus");
         }}
       />
-      {/* <Box sx={{ width: "161px" }}>
-        <LinearProgress variant="determinate" value={progress} />
-      </Box> */}
     </span>
   );
 }
