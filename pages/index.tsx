@@ -36,6 +36,6 @@ export async function getStaticProps() {
       books,
       authors,
     },
-    revalidate: 300,
+    revalidate: 3600,
   };
 }
