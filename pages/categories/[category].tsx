@@ -64,12 +64,26 @@ function Category({ books }: HomeProps) {
 
 export default Category;
 
-export async function getServerSideProps({
-  query,
+export const getStaticPaths = async () => {
+  return {
+    paths: [
+      { params: { category: "actionandadventure" } },
+      { params: { category: "fantasy" } },
+      { params: { category: "crime" } },
+      { params: { category: "romance" } },
+      { params: { category: "non-fiction" } },
+      { params: { category: "science-fiction" } },
+    ],
+    fallback: false,
+  };
+};
+
+export async function getStaticProps({
+  params,
 }: {
-  query: { category: string };
+  params: { category: string };
 }) {
-  const { category } = query;
+  const { category } = params;
   await dbConnect();
 
   const resp = await Book.find({ category: category });
@@ -78,5 +92,6 @@ export async function getServerSideProps({
     props: {
       books,
     },
+    revalidate: 3600,
   };
 }
