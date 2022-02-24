@@ -25,8 +25,23 @@ function author({ author, books }: AuthorSlugProps) {
 
 export default author;
 
-export async function getServerSideProps({ query }: { query: AuthorProps }) {
-  const { slug } = query;
+export const getStaticPaths = async () => {
+  await dbConnect();
+  const resp = await Author.find({});
+  const authors = JSON.parse(JSON.stringify(resp));
+  const paths = authors.map((author: any) => {
+    return {
+      params: { slug: author.slug },
+    };
+  });
+  return {
+    paths: paths,
+    fallback: false,
+  };
+};
+
+export async function getStaticProps({ params }: { params: AuthorProps }) {
+  const { slug } = params;
   await dbConnect();
 
   const resp = await Author.findOne({ slug });
@@ -39,5 +54,6 @@ export async function getServerSideProps({ query }: { query: AuthorProps }) {
       author,
       books,
     },
+    revalidate: 3600,
   };
 }
