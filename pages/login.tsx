@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -12,6 +12,7 @@ import { userAtom } from "../atoms/userAtom";
 import HeadTag from "../components/HeadTag";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import SampleUser from "../components/SampleUser";
 
 // @ts-ignore
 import Cookies from "js-cookie";
@@ -46,6 +47,14 @@ function Login() {
   const router = useRouter();
   const [userInfo, setUserInfo] = useRecoilState(userAtom);
   const { redirect }: any = router.query;
+  const [sampleUserModal, setSampleUserModal] = useState(false);
+
+  const handleSampleUserOpen = () => {
+    setSampleUserModal(true);
+  };
+  const handleSampleUserClose = () => {
+    setSampleUserModal(false);
+  };
 
   useEffect(() => {
     if (userInfo) {
@@ -56,8 +65,15 @@ function Login() {
   return (
     <>
       <ToastContainer />
+      <SampleUser
+        sampleUserModal={sampleUserModal}
+        handleSampleUserClose={handleSampleUserClose}
+      />
       <HeadTag title="Login" />
       <div className={styles.login__page}>
+        <p className={styles.sample__user} onClick={handleSampleUserOpen}>
+          Click here to get sample test user
+        </p>
         <div className={styles.login__container}>
           <h2>Welcome Back</h2>
           <p className={styles.login__text}>
