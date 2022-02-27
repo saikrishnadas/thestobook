@@ -11,6 +11,7 @@ import { useRecoilState } from "recoil";
 import { userAtom } from "../atoms/userAtom";
 import HeadTag from "../components/HeadTag";
 import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // @ts-ignore
 import Cookies from "js-cookie";
