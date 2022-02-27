@@ -10,6 +10,8 @@ import axios from "axios";
 import { useRecoilState } from "recoil";
 import { userAtom } from "../../atoms/userAtom";
 import HeadTag from "../../components/HeadTag";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // @ts-ignore
 import Cookies from "js-cookie";
@@ -55,6 +57,7 @@ function Register() {
 
   return (
     <>
+      <ToastContainer />
       <HeadTag title="Register" />
       <div className={styles.register__page}>
         <div className={styles.register__container}>
@@ -77,7 +80,10 @@ function Register() {
               const name = formData.name;
               const confirmpassword = formData.confirmpassword;
               if (password !== confirmpassword) {
-                alert("Passwords doesn't match");
+                // alert("Passwords doesn't match");
+                toast.error("Passwords doesn't match", {
+                  position: "top-center",
+                });
                 return;
               }
 
@@ -91,8 +97,14 @@ function Register() {
                 Cookies.set("userInfo", JSON.stringify(data));
                 router.push(redirect || "/");
               } catch (err: any) {
-                alert(
-                  err.response.data ? err.response.data.message : err.message
+                // alert(
+                //   err.response.data ? err.response.data.message : err.message
+                // );
+                toast.error(
+                  err.response.data ? err.response.data.message : err.message,
+                  {
+                    position: "top-center",
+                  }
                 );
               }
             }}

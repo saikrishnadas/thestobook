@@ -10,6 +10,7 @@ import axios from "axios";
 import { useRecoilState } from "recoil";
 import { userAtom } from "../atoms/userAtom";
 import HeadTag from "../components/HeadTag";
+import { ToastContainer, toast } from "react-toastify";
 
 // @ts-ignore
 import Cookies from "js-cookie";
@@ -53,6 +54,7 @@ function Login() {
 
   return (
     <>
+      <ToastContainer />
       <HeadTag title="Login" />
       <div className={styles.login__page}>
         <div className={styles.login__container}>
@@ -76,8 +78,14 @@ function Login() {
                 Cookies.set("userInfo", JSON.stringify(data));
                 router.push(redirect || "/");
               } catch (err: any) {
-                alert(
-                  err.response.data ? err.response.data.message : err.message
+                // alert(
+                //   err.response.data ? err.response.data.message : err.message
+                // );
+                toast.error(
+                  err.response.data ? err.response.data.message : err.message,
+                  {
+                    position: "top-center",
+                  }
                 );
               }
             }}
