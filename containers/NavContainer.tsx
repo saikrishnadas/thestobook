@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Profile from "../components/Profile";
 import MenuSelect from "../components/MenuSelect";
 import styles from "../styles/NavContainer.module.scss";
@@ -12,6 +12,9 @@ import Link from "next/link";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuMobile from "../components/MenuMobile";
 import { BookProps } from "../utils/typings";
+
+//@ts-ignore
+import OutsideClickHandler from "react-outside-click-handler";
 
 function NavContainer() {
   const userInfo = useRecoilValue(userAtom);
@@ -48,7 +51,17 @@ function NavContainer() {
 
   return (
     <>
-      {menu && <MenuMobile handleMenuClose={handleMenuClose} />}
+      {menu && (
+        <>
+          <OutsideClickHandler
+            onOutsideClick={() => {
+              handleMenuClose();
+            }}
+          >
+            <MenuMobile handleMenuClose={handleMenuClose} />
+          </OutsideClickHandler>
+        </>
+      )}
       <span className={styles.menu__icon} onClick={handleMenu}>
         <MenuIcon />
       </span>
