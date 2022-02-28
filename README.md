@@ -40,6 +40,7 @@ This web application is SEO optimized and has a full score of 100 from lighthous
 Most of the data is cached and optimized to run on different devices and to be super fast in retriving data and minimal navigation load.
 
 **Lighthouse Audits:**
+
 ![Report](https://thestobookimages.s3.ap-south-1.amazonaws.com/Screenshot+2022-02-28+at+1.14.20+PM.png)
 
 ## Support
