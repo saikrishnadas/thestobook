@@ -76,7 +76,9 @@ function Sbooks() {
           <TopMain />
           <span className={styles.suggestion__p}>
             <p>Couldn't find the book?</p>
-            <p onClick={handleSuggestClick}> Suggest a book to add.</p>
+            <p data-testid="openSuggestionBox" onClick={handleSuggestClick}>
+              Suggest a book to add.
+            </p>
           </span>
           <div className={styles.saved__book__container}>
             {searchBooks?.map((book: BookProps) => {

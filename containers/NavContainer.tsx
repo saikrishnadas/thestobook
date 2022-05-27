@@ -16,10 +16,17 @@ import { BookProps } from "../utils/typings";
 //@ts-ignore
 import OutsideClickHandler from "react-outside-click-handler";
 
+//@ts-ignore
+import Cookies from "js-cookie";
+
 function NavContainer() {
   const userInfo = useRecoilValue(userAtom);
   const setCurrentBook = useSetRecoilState(currentAtom);
   const [menu, setMenu] = useState(false);
+
+  const user = Cookies.get("userInfo")
+    ? JSON.parse(Cookies.get("userInfo"))
+    : null;
 
   const getCurrentBook = () => {
     axios
@@ -70,7 +77,7 @@ function NavContainer() {
           <p className={styles.about__us}>About The Stobook</p>
         </Link>
         <Profile />
-        <MenuSelect />
+        <MenuSelect user={user} />
         {userInfo && <Current />}
 
         <p
