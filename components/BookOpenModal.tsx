@@ -53,6 +53,7 @@ function BookOpenModal({ open, book, handleClose }: BookOpenModalProps) {
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
+        data-testid="bookmodal"
       >
         <Box className={styles.box__container}>
           <div className={styles.modal__container}>

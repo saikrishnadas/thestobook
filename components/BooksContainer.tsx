@@ -37,10 +37,14 @@ function BooksContainer({ title, books }: BooksContainerProps) {
       setProgress(progress + 20);
     }
   };
-
   return (
     <>
-      <BookOpenModal open={open} handleClose={handleClose} book={book!} />
+      <BookOpenModal
+        open={open}
+        handleClose={handleClose}
+        book={book!}
+        data-testid="bookmodal"
+      />
       <div className={styles.newadded__container}>
         <span
           style={{
@@ -54,27 +58,33 @@ function BooksContainer({ title, books }: BooksContainerProps) {
             handleProgress={handleProgress}
           />
         </span>
-        <div className={styles.book__container} ref={scrollRef}>
-          {books?.map((book: BookProps) => {
-            return (
-              <div
-                className={styles.book__card}
-                key={book._id}
-                onClick={() => handleBookClick(book)}
-              >
-                <div className={styles.book__layout}>
-                  <Image
-                    src={book.img}
-                    alt="book image"
-                    width={77}
-                    height={118}
-                    objectFit="cover"
-                  />
+        <div
+          className={styles.book__container}
+          ref={scrollRef}
+          data-testid="bookcontainer"
+        >
+          {Array.isArray(books) &&
+            books?.map((book: BookProps, index) => {
+              return (
+                <div
+                  data-testid={`bookcontainer-${index}`}
+                  className={styles.book__card}
+                  key={book._id}
+                  onClick={() => handleBookClick(book)}
+                >
+                  <div className={styles.book__layout}>
+                    <Image
+                      src={book.img}
+                      alt="book image"
+                      width={77}
+                      height={118}
+                      objectFit="cover"
+                    />
+                  </div>
+                  <p>{book.name}</p>
                 </div>
-                <p>{book.name}</p>
-              </div>
-            );
-          })}
+              );
+            })}
         </div>
       </div>
     </>

@@ -12,7 +12,7 @@ import Cookies from "js-cookie";
 function TopMain() {
   const router = useRouter();
   const searchBooks = useSetRecoilState(searchAtom);
-  const [search, setSearch] = useState<string | null>(null);
+  const [search, setSearch] = useState<string>("");
 
   const searchIconStyle = {
     width: "25px",
@@ -28,6 +28,7 @@ function TopMain() {
     // console.log(resp.data);
     searchBooks(resp.data);
     Cookies.set("serachBooks", resp.data);
+    setSearch("");
     router.push("/sbooks");
   };
 
@@ -37,6 +38,7 @@ function TopMain() {
       <form onSubmit={onSearch}>
         <div className={styles.search__bar__container}>
           <button
+            data-testid="searchbutton"
             style={{
               outline: "none",
               border: "none",
@@ -49,8 +51,10 @@ function TopMain() {
           </button>
 
           <input
+            data-testid="inputbox"
             placeholder="Search to find a book"
             className={styles.search__bar}
+            value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>

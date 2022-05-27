@@ -58,7 +58,7 @@ function MenuMobile({ handleMenuClose }: MenuMobileProps) {
           <CancelIcon className={styles.close__icon} />
         </div>
         <Profile />
-        <MenuSelect />
+        <MenuSelect user={user} />
         {userInfo && <Current />}
 
         <p

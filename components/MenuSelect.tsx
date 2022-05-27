@@ -1,14 +1,7 @@
 import styles from "../styles/NavContainer.module.scss";
 import Link from "next/link";
 
-//@ts-ignore
-import Cookies from "js-cookie";
-
-function MenuSelect() {
-  const user = Cookies.get("userInfo")
-    ? JSON.parse(Cookies.get("userInfo"))
-    : null;
-
+function MenuSelect({ user }: any) {
   return (
     <div className={styles.menu}>
       <Link href="/">
